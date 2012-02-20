@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="http://www.xml-cml.org/common/style/dictionary.xsl" type="text/xsl"?>
 <dictionary
         xmlns="http://www.xml-cml.org/schema"
         xmlns:h="http://www.w3.org/1999/xhtml"
+        xmlns:cml="http://www.xml-cml.org/schema/cml"
         xmlns:cmlx="http://www.xml-cml.org/schema/cmlx"
         xmlns:convention="http://www.xml-cml.org/convention/"
         xmlns:unitType="http://www.xml-cml.org/unit/unitType/"
+        xmlns:si="http://www.xml-cml.org/unit/si/"
         convention="convention:dictionary"
         title="Computational Chemistry - Core Concepts"
         namespace="http://www.xml-cml.org/dictionary/compchem/"
@@ -22,7 +23,7 @@
     </description>
     <dc:author>Weerapong Phadungsukanan</dc:author>
 
-    <entry id="jobList" term="job list" unitType="unitType:none">
+    <entry id="jobList" term="job list" dataType="cml:module" units="si:none" unitType="unitType:none">
         <definition>
             <h:p>A list of computational job</h:p>
         </definition>
@@ -38,7 +39,7 @@
 </description>
 </entry>
 
-<entry id="job" term="job" unitType="unitType:none">
+<entry id="job" term="job"  dataType="cml:module" units="si:none" unitType="unitType:none">
     <definition>
         <h:p>A job or computational task</h:p>
     </definition>
@@ -52,7 +53,7 @@
     </description>
 </entry>
 
-<entry id="initialization" term="initialization" unitType="unitType:none">
+<entry id="initialization" term="initialization"  dataType="cml:module" units="si:none" unitType="unitType:none">
     <definition>
         <h:p>A initialisation module for a computational job</h:p>
     </definition>
@@ -64,7 +65,7 @@
     </description>
 </entry>
 
-<entry id="calculation" term="calculation" unitType="unitType:none">
+<entry id="calculation" term="calculation" dataType="cml:module" units="si:none" unitType="unitType:none">
     <definition>
         <h:p>A calculation module for a computational job</h:p>
     </definition>
@@ -76,7 +77,7 @@
     </description>
 </entry>
 
-<entry id="finalization" term="finalization" unitType="unitType:none">
+<entry id="finalization" term="finalization" dataType="cml:module" units="si:none" unitType="unitType:none">
     <definition>
         <h:p>A finalization module for a computational job</h:p>
     </definition>
@@ -88,7 +89,7 @@
     </description>
 </entry>
 
-<entry id="environment" term="environment" unitType="unitType:none">
+<entry id="environment" term="environment" dataType="cml:module" units="si:none" unitType="unitType:none">
     <definition>
         <h:p>Module holding concepts relating to environment that the job used or required</h:p>
     </definition>
@@ -109,7 +110,7 @@
 
 <!-- added by PMR -->
 
-    <entry id="misc" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="miscellaneous markup">
+    <entry id="misc" dataType="xsd:string" unitType="unitType:unknown"  term="miscellaneous markup">
       <definition>
         <h:p>miscellaneous</h:p>
       </definition>
@@ -118,7 +119,7 @@
       </description>
     </entry>
     
-    <entry id="parameter" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="parameter">
+    <entry id="parameter" dataType="xsd:string" unitType="unitType:unknown"  term="parameter">
       <definition>
         <h:p>parameter</h:p>
       </definition>
@@ -126,7 +127,7 @@
         <h:p>TODO MOVE</h:p>
       </description>
     </entry>
-    <entry id="property" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="property">
+    <entry id="property" dataType="xsd:string" unitType="unitType:unknown"  term="property">
       <definition>
         <h:p>property</h:p>
       </definition>
@@ -135,7 +136,7 @@
       </description>
     </entry>
 
-    <entry id="startid" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="startid">
+    <entry id="startid" dataType="xsd:string" unitType="unitType:unknown"  term="startid">
       <definition>
         <h:p>???</h:p>
       </definition>
@@ -144,7 +145,7 @@
       </description>
     </entry>
     
-    <entry id="data" units="si:unknown" unitType="unitType:unknown"  term="data" dataType="xsd:string">
+    <entry id="data" unitType="unitType:unknown"  term="data" dataType="xsd:string">
       <definition>
         <h:p>data</h:p>
       </definition>
@@ -153,7 +154,7 @@
       </description>
     </entry>
     
-    <entry id="title" units="si:unknown" unitType="unitType:unknown"  term="title" dataType="xsd:string">
+    <entry id="title" unitType="unitType:unknown"  term="title" dataType="xsd:string">
       <definition>
         <h:p>an arbitrary title</h:p>
       </definition>
@@ -163,7 +164,7 @@
       </description>
     </entry>
     
-    <entry id="iter" units="si:unknown" unitType="unitType:unknown"  term="serial number of iteration" dataType="xsd:integer">
+    <entry id="iter" unitType="unitType:unknown"  term="serial number of iteration" dataType="xsd:integer">
       <definition>
         <h:p>serial number of iteration</h:p>
       </definition>
@@ -172,7 +173,7 @@
       </description>
     </entry>
     <!-- unitType should be added to entry attributes <entry id="energy" 
-     dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="energy" dataType="xsd:double" unitType="unitType:energy"> <definition><h:p>energy</h:p></definition> 
+     dataType="xsd:string" unitType="unitType:unknown"  term="energy" dataType="xsd:double" unitType="unitType:energy"> <definition><h:p>energy</h:p></definition> 
       <description><h:p>energy of unspecified typeTODO MOVE</h:p></description> 
       </entry> 
       -->
@@ -195,7 +196,7 @@
       </description>
     </entry>
     
-    <entry id="rmsdens" units="si:unknown" unitType="unitType:unknown"  term="RMS electron density" dataType="xsd:double">
+    <entry id="rmsdens" unitType="unitType:unknown"  term="RMS electron density" dataType="xsd:double">
       <definition>
         <h:p>rms density</h:p>
       </definition>
@@ -204,7 +205,7 @@
       </description>
     </entry>
     
-    <entry id="diiserr" units="si:unknown" unitType="unitType:unknown"  term="diiserr" dataType="xsd:double">
+    <entry id="diiserr" unitType="unitType:unknown"  term="diiserr" dataType="xsd:double">
       <definition>
         <h:p>error in DIIS</h:p>
       </definition>
@@ -213,7 +214,7 @@
       </description>
     </entry>
     
-    <entry id="time" units="si:unknown" unitType="unitType:unknown"  term="cumulative time" dataType="xsd:double">
+    <entry id="time" unitType="unitType:unknown"  term="cumulative time" dataType="xsd:double">
       <definition>
         <h:p>cumulative time</h:p>
       </definition>
@@ -223,7 +224,7 @@
     </entry>
 
 
-    <entry id="sumatomener" units="si:unknown" unitType="unitType:unknown"  term="Sum of atom energies" dataType="xsd:double">
+    <entry id="sumatomener" unitType="unitType:unknown"  term="Sum of atom energies" dataType="xsd:double">
       <definition>
         <h:p>Sum of atom energies</h:p>
       </definition>
@@ -232,7 +233,7 @@
       </description>
     </entry>
     
-    <entry id="totener" units="si:unknown" unitType="unitType:unknown"  term="Total energy" dataType="xsd:double">
+    <entry id="totener" unitType="unitType:unknown"  term="Total energy" dataType="xsd:double">
       <definition>
         <h:p>Total energy</h:p>
       </definition>
@@ -241,7 +242,7 @@
       </description>
     </entry>
     
-    <entry id="ener1e" units="si:unknown" unitType="unitType:unknown"  term="1-electron energy" dataType="xsd:double">
+    <entry id="ener1e" unitType="unitType:unknown"  term="1-electron energy" dataType="xsd:double">
       <definition>
         <h:p>1-electron energy</h:p>
       </definition>
@@ -250,7 +251,7 @@
       </description>
     </entry>
     
-    <entry id="ener2e" units="si:unknown" unitType="unitType:unknown"  term="TODO ener2e" dataType="xsd:double">
+    <entry id="ener2e" unitType="unitType:unknown"  term="TODO ener2e" dataType="xsd:double">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -259,7 +260,7 @@
       </description>
     </entry>
     
-    <entry id="homo" units="si:unknown" unitType="unitType:unknown"  term="HOMO" dataType="xsd:double">
+    <entry id="homo" unitType="unitType:unknown"  term="HOMO" dataType="xsd:double">
       <definition>
         <h:p>Highest Occupied Molecular Orbital</h:p>
       </definition>
@@ -268,7 +269,7 @@
       </description>
     </entry>
     
-    <entry id="lumo" units="si:unknown" unitType="unitType:unknown"  term="LUMO" dataType="xsd:double">
+    <entry id="lumo" unitType="unitType:unknown"  term="LUMO" dataType="xsd:double">
       <definition>
         <h:p>Lowest Occupied Moecular Orbital</h:p>
       </definition>
@@ -277,7 +278,7 @@
       </description>
     </entry>
     
-    <entry id="totaldft" units="si:unknown" unitType="unitType:unknown"  term="Total DFT energy" dataType="xsd:double">
+    <entry id="totaldft" unitType="unitType:unknown"  term="Total DFT energy" dataType="xsd:double">
       <definition>
         <h:p>Total DFT energy</h:p>
       </definition>
@@ -286,7 +287,7 @@
       </description>
     </entry>
 
-    <entry id="oneelecener" units="si:unknown" unitType="unitType:unknown"  term="1-electron energy" dataType="xsd:double">
+    <entry id="oneelecener" unitType="unitType:unknown"  term="1-electron energy" dataType="xsd:double">
       <definition>
         <h:p>1-electron energy</h:p>
       </definition>
@@ -294,7 +295,7 @@
         <h:p>TODO</h:p>
       </description>
     </entry>
-    <entry id="coulomb" units="si:unknown" unitType="unitType:unknown"  term="Coulomb energy" dataType="xsd:double">
+    <entry id="coulomb" unitType="unitType:unknown"  term="Coulomb energy" dataType="xsd:double">
       <definition>
         <h:p>Coulomb energy</h:p>
       </definition>
@@ -302,7 +303,7 @@
         <h:p>TODO</h:p>
       </description>
     </entry>
-    <entry id="nucrepener" units="si:unknown" unitType="unitType:unknown"  term="Nuclear repulsion energy"
+    <entry id="nucrepener" unitType="unitType:unknown"  term="Nuclear repulsion energy"
       dataType="xsd:double">
       <definition>
         <h:p>Nuclear repulsion energy</h:p>
@@ -312,7 +313,7 @@
       </description>
     </entry>
 
-    <entry id="atomsym" units="si:unknown" unitType="unitType:unknown"  term="Atom symbol" dataType="cml:elementType">
+    <entry id="atomsym" unitType="unitType:unknown"  term="Atom symbol" dataType="cml:elementType">
       <definition>
         <h:p>Symbol of the atom</h:p>
       </definition>
@@ -321,7 +322,7 @@
       </description>
     </entry>
     
-    <entry id="atommass" units="si:unknown" unitType="unitType:unknown"  term="Mass of the atom" dataType="xsd:double">
+    <entry id="atommass" unitType="unitType:unknown"  term="Mass of the atom" dataType="xsd:double">
       <definition>
         <h:p>Mass of the atom</h:p>
       </definition>
@@ -331,7 +332,7 @@
       </description>
     </entry>
     
-    <entry id="echangecorr" units="si:unknown" unitType="unitType:unknown"  term="Exchange correlation energy"
+    <entry id="echangecorr" unitType="unitType:unknown"  term="Exchange correlation energy"
       dataType="xsd:double">
       <definition>
         <h:p>Exchange correlation energy</h:p>
@@ -341,7 +342,7 @@
       </description>
     </entry>
     
-    <entry id="basis" units="si:unknown" unitType="unitType:unknown"  term="basis set?" dataType="xsd:string">
+    <entry id="basis" unitType="unitType:unknown"  term="basis set?" dataType="xsd:string">
       <definition>
         <h:p>The basis set</h:p>
       </definition>
@@ -350,7 +351,7 @@
       </description>
     </entry>
     
-    <entry id="elsym" units="si:unknown" unitType="unitType:unknown"  term="TODO elsym" dataType="cml:elementType">
+    <entry id="elsym" unitType="unitType:unknown"  term="TODO elsym" dataType="cml:elementType">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -358,7 +359,7 @@
         <h:p>TODO</h:p>
       </description>
     </entry>
-    <entry id="elemname" units="si:unknown" unitType="unitType:unknown"  term="TODO elemname" dataType="cml:elementType">
+    <entry id="elemname" unitType="unitType:unknown"  term="TODO elemname" dataType="cml:elementType">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -367,7 +368,7 @@
       </description>
     </entry>
 
-    <entry id="atnum" units="si:unknown" unitType="unitType:unknown"  term="TODO atnum" dataType="xsd:integer">
+    <entry id="atnum" unitType="unitType:unknown"  term="TODO atnum" dataType="xsd:integer">
       <definition>
         <h:p>serial number of atom</h:p>
       </definition>
@@ -376,7 +377,7 @@
       </description>
     </entry>
 
-    <entry id="bfn" units="si:unknown" unitType="unitType:unknown"  term="TODO bfn" dataType="xsd:integer">
+    <entry id="bfn" unitType="unitType:unknown"  term="TODO bfn" dataType="xsd:integer">
       <definition>
         <h:p>basis function</h:p>
       </definition>
@@ -385,7 +386,7 @@
       </description>
     </entry>
 
-    <entry id="irrep" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="Irreducible representation">
+    <entry id="irrep" dataType="xsd:string" unitType="unitType:unknown"  term="Irreducible representation">
       <definition>
         <h:p>Irreducible representation</h:p>
       </definition>
@@ -395,7 +396,7 @@
       </description>
     </entry>
 
-    <entry id="serial" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="Serial">
+    <entry id="serial" dataType="xsd:string" unitType="unitType:unknown"  term="Serial">
       <definition>
         <h:p>A serial number</h:p>
       </definition>
@@ -405,7 +406,7 @@
       </description>
     </entry>
 
-    <entry id="elementType" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="element type">
+    <entry id="elementType" dataType="xsd:string" unitType="unitType:unknown"  term="element type">
       <definition>
         <h:p>the type of the element</h:p>
       </definition>
@@ -415,7 +416,7 @@
       </description>
     </entry>
 
-    <entry id="atomType" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="atom type">
+    <entry id="atomType" dataType="xsd:string" unitType="unitType:unknown"  term="atom type">
       <definition>
         <h:p>an atom type</h:p>
       </definition>
@@ -425,7 +426,7 @@
       </description>
     </entry>
 
-    <entry id="natoms" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="atom count">
+    <entry id="natoms" dataType="xsd:string" unitType="unitType:unknown"  term="atom count">
       <definition>
         <h:p>number of atoms</h:p>
       </definition>
@@ -435,7 +436,7 @@
       </description>
     </entry>
 
-    <entry id="hostname" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="host name">
+    <entry id="hostname" dataType="xsd:string" unitType="unitType:unknown"  term="host name">
       <definition>
         <h:p>host name</h:p>
       </definition>
@@ -445,37 +446,7 @@
       </description>
     </entry>
 
-    <entry id="finalization" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="finalization module">
-      <definition>
-        <h:p>finalization module</h:p>
-      </definition>
-      <description>
-        <h:p>the finalization module in the Compchem convention</h:p>
-        <h:p class="example">TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="initialization" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="initialization module">
-      <definition>
-        <h:p>initialization module</h:p>
-      </definition>
-      <description>
-        <h:p>the initialization module in the Compchem convention</h:p>
-        <h:p class="example">TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="calculation" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="calculation module">
-      <definition>
-        <h:p>calculation module</h:p>
-      </definition>
-      <description>
-        <h:p>the calculation module in the Compchem convention</h:p>
-        <h:p class="example">TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="version" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="program version">
+    <entry id="version" dataType="xsd:string" unitType="unitType:unknown"  term="program version">
       <definition>
         <h:p>program version</h:p>
       </definition>
@@ -485,7 +456,7 @@
       </description>
     </entry>
 
-    <entry id="executable" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="executable program">
+    <entry id="executable" dataType="xsd:string" unitType="unitType:unknown"  term="executable program">
       <definition>
         <h:p>executable program</h:p>
       </definition>
@@ -495,7 +466,7 @@
       </description>
     </entry>
 
-    <entry id="input" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="program input">
+    <entry id="input" dataType="xsd:string" unitType="unitType:unknown"  term="program input">
       <definition>
         <h:p>program input</h:p>
       </definition>
@@ -505,7 +476,7 @@
       </description>
     </entry>
 
-    <entry id="date" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="date">
+    <entry id="date" dataType="xsd:string" unitType="unitType:unknown"  term="date">
       <definition>
         <h:p>An unspecified date</h:p>
       </definition>
@@ -515,7 +486,7 @@
       </description>
     </entry>
 
-    <entry id="nuclearDipole" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="nuclear dipole">
+    <entry id="nuclearDipole" dataType="xsd:string" unitType="unitType:unknown"  term="nuclear dipole">
       <definition>
         <h:p>nuclear dipole</h:p>
       </definition>
@@ -525,7 +496,7 @@
       </description>
     </entry>
 
-    <entry id="nproc" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="number of processors">
+    <entry id="nproc" dataType="xsd:string" unitType="unitType:unknown"  term="number of processors">
       <definition>
         <h:p>number of processors</h:p>
       </definition>
@@ -535,7 +506,7 @@
       </description>
     </entry>
 
-    <entry id="centerofmass" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="center of mass">
+    <entry id="centerofmass" dataType="xsd:string" unitType="unitType:unknown"  term="center of mass">
       <definition>
         <h:p>center of mass</h:p>
       </definition>
@@ -545,7 +516,7 @@
       </description>
     </entry>
 
-    <entry id="calculationType" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="Type of calculation">
+    <entry id="calculationType" dataType="xsd:string" unitType="unitType:unknown"  term="Type of calculation">
       <definition>
         <h:p>calculationType</h:p>
       </definition>
@@ -555,7 +526,7 @@
       </description>
     </entry>
     
-    <entry id="metadata" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="metadata">
+    <entry id="metadata" dataType="xsd:string" unitType="unitType:unknown"  term="metadata">
       <definition>
         <h:p>metadata</h:p>
       </definition>
@@ -564,7 +535,7 @@
       </description>
     </entry>
 
-    <entry id="x3" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="CML cartesian x">
+    <entry id="x3" dataType="xsd:string" unitType="unitType:unknown"  term="CML cartesian x">
       <definition>
         <h:p>CML x3 coordinate</h:p>
       </definition>
@@ -573,7 +544,7 @@
       </description>
     </entry>
 
-    <entry id="y3" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="CML cartesian y">
+    <entry id="y3" dataType="xsd:string" unitType="unitType:unknown"  term="CML cartesian y">
       <definition>
         <h:p>CML y3 coordinate</h:p>
       </definition>
@@ -582,7 +553,7 @@
       </description>
     </entry>
 
-    <entry id="z3" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="CML cartesian z">
+    <entry id="z3" dataType="xsd:string" unitType="unitType:unknown"  term="CML cartesian z">
       <definition>
         <h:p>CML z3 coordinate</h:p>
       </definition>
@@ -591,7 +562,7 @@
       </description>
     </entry>
 
-    <entry id="program" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="program">
+    <entry id="program" dataType="xsd:string" unitType="unitType:unknown"  term="program">
       <definition>
         <h:p>the program being run</h:p>
       </definition>
@@ -600,7 +571,7 @@
       </description>
     </entry>
 
-    <entry id="atomtype" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="atom type">
+    <entry id="atomtype" dataType="xsd:string" unitType="unitType:unknown"  term="atom type">
       <definition>
         <h:p>CML atomType element</h:p>
       </definition>
@@ -609,7 +580,7 @@
       </description>
     </entry>
 
-    <entry id="atomtypeRef" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="reference to atom type">
+    <entry id="atomtypeRef" dataType="xsd:string" unitType="unitType:unknown"  term="reference to atom type">
       <definition>
         <h:p>Reference to CML atomType element</h:p>
       </definition>
@@ -618,7 +589,7 @@
       </description>
     </entry>
 
-    <entry id="totalener" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="total energy">
+    <entry id="totalener" dataType="xsd:string" unitType="unitType:unknown"  term="total energy">
       <definition>
         <h:p>The total energy</h:p>
       </definition>
@@ -627,7 +598,7 @@
       </description>
     </entry>
 
-    <entry id="id" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="CML id">
+    <entry id="id" dataType="xsd:string" unitType="unitType:unknown"  term="CML id">
       <definition>
         <h:p>A CML id</h:p>
       </definition>
@@ -636,7 +607,7 @@
       </description>
     </entry>
 
-    <entry id="atomicmass" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="atomic mass">
+    <entry id="atomicmass" dataType="xsd:string" unitType="unitType:unknown"  term="atomic mass">
       <definition>
         <h:p>Atomic mass</h:p>
       </definition>
@@ -645,7 +616,7 @@
       </description>
     </entry>
 
-    <entry id="grouporder" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="grouporder" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -654,7 +625,7 @@
       </description>
     </entry>
 
-    <entry id="twoeener" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="twoeener" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -663,7 +634,7 @@
       </description>
     </entry>
 
-   <entry id="groupnumber" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+   <entry id="groupnumber" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -672,7 +643,7 @@
       </description>
     </entry>
 
-  <entry id="groupname" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+  <entry id="groupname" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -681,7 +652,7 @@
       </description>
     </entry>
 
-  <entry id="mass" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+  <entry id="mass" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -690,7 +661,7 @@
       </description>
     </entry>
 
-    <entry id="oneeener" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="oneeener" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -699,16 +670,7 @@
       </description>
     </entry>
 
-    <entry id="nuclearEnergy" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-    
-    <entry id="cputime" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="nuclearEnergy" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -717,7 +679,16 @@
       </description>
     </entry>
     
-    <entry id="walltime" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="cputime" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+      <definition>
+        <h:p>TODO</h:p>
+      </definition>
+      <description>
+        <h:p>TODO</h:p>
+      </description>
+    </entry>
+    
+    <entry id="walltime" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -726,7 +697,7 @@
       </description>
     </entry>
 
-    <entry id="cell.a" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.a" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -735,7 +706,7 @@
       </description>
     </entry>
 
-    <entry id="cell.b" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.b" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -744,7 +715,7 @@
       </description>
     </entry>
 
-    <entry id="cell.c" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.c" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -753,7 +724,7 @@
       </description>
     </entry>
 
-    <entry id="cell.alpha" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.alpha" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -762,7 +733,7 @@
       </description>
     </entry>
 
-    <entry id="cell.beta" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.beta" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -771,7 +742,7 @@
       </description>
     </entry>
 
-    <entry id="cell.gamma" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.gamma" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -780,7 +751,7 @@
       </description>
     </entry>
 
-    <entry id="cell.omega" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.omega" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -789,7 +760,7 @@
       </description>
     </entry>
 
-    <entry id="lattice.recip.units" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="lattice.recip.units" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -798,7 +769,7 @@
       </description>
     </entry>
 
-    <entry id="citation" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="citation" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -807,7 +778,7 @@
       </description>
     </entry>
 
-    <entry id="charge" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="charge" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -816,7 +787,7 @@
       </description>
     </entry>
 
-    <entry id="pointgroup" dataType="xsd:string" units="si:unknown" unitType="unitType:unknown"  term="TODO">
+    <entry id="pointgroup" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -825,7 +796,7 @@
       </description>
     </entry>
 
-    <entry id="compx" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="compx" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -836,7 +807,7 @@
     </entry>
 
 
-    <entry id="molmass" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="molmass" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -847,7 +818,7 @@
     </entry>
 
 
-    <entry id="basis.coefficient" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="basis.coefficient" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -858,7 +829,7 @@
     </entry>
 
 
-    <entry id="tensorname" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="tensorname" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -869,7 +840,7 @@
     </entry>
 
 
-    <entry id="basis.shellnum" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="basis.shellnum" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -880,7 +851,7 @@
     </entry>
 
 
-    <entry id="atomicNumber" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="atomicNumber" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -891,7 +862,7 @@
     </entry>
 
 
-    <entry id="compz" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="compz" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -902,7 +873,7 @@
     </entry>
 
 
-    <entry id="compy" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="compy" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -913,7 +884,7 @@
     </entry>
 
 
-    <entry id="shellsym" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="shellsym" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -924,7 +895,7 @@
     </entry>
 
 
-    <entry id="row.z" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="row.z" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -935,7 +906,7 @@
     </entry>
 
 
-    <entry id="row.x" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="row.x" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -946,7 +917,7 @@
     </entry>
 
 
-    <entry id="row.y" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="row.y" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
@@ -957,7 +928,7 @@
     </entry>
 
 
-    <entry id="basis.exponent" term="TODO" dataType="xsd:string" units="units:none"
+    <entry id="basis.exponent" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
         <h:p>TODO</h:p>
