@@ -158,7 +158,8 @@
             <h:p>The date that the executable was compiled.</h:p>
         </definition>
         <description>
-            <h:p>TODO</h:p>
+            <h:p>The date that the executable used to run the job was compiled. This 
+            can be useful for determining the version of the code that was used.</h:p>
             <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
             
         </description>
@@ -170,9 +171,9 @@
             <h:p>The date that the job commenced.</h:p>
         </definition>
         <description>
-            <h:p>TODO</h:p>
+            <h:p>The date that the job was started. For long-running jobs,
+             this may not be the same as the completion date.</h:p>
             <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
-            
         </description>
     </entry>
 
@@ -182,8 +183,8 @@
             <h:p>The path to the executable program</h:p>
         </definition>
         <description>
-            <h:p>no controlled syntax</h:p>
-            <h:p class="example">TODO</h:p>
+            <h:p>Many programs print the path of the executable in the output. This can 
+            be used to help determine which version of a code was used to run the job.</h:p>
             <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
         </description>
     </entry>
@@ -194,8 +195,8 @@
             <h:p>The name of the host that the program was run on.</h:p>
         </definition>
         <description>
-            <h:p>uncontrolled vocabulary</h:p>
-            <h:p class="example">TODO</h:p>
+            <h:p>For multi-processor jobs that were run on multiple hosts that have different
+            names, this may be undefined.</h:p>
             <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
             
         </description>
@@ -203,11 +204,29 @@
 
     <entry id="input" dataType="xsd:string" unitType="unitType:none" units="si:none" term="program input">
       <definition>
-        <h:p>program input</h:p>
+        <h:p>The input directives that were used to run the job.</h:p>
       </definition>
       <description>
-        <h:p>no controlled syntax</h:p>
-        <h:p class="example">TODO</h:p>
+        <h:p>>Where, available, this is input directives used to run the job and
+        which could be used to recreate the job.</h:p>
+        <h:p class="example">For a simple nwchem scf calculation on water, the input would be:</h:p>
+        <h:code>echo
+start molecule
+
+title "scf calculation on water with 6.31g* basis"
+
+geometry units angstrom
+O      0.00000000     0.00000000     0.11726921
+H      0.75698224     0.00000000    -0.46907685
+H     -0.75698224     0.00000000    -0.46907685
+end
+
+basis
+  O library 6-31g*
+  H library 6-31g*
+end
+
+task scf</h:code>
       </description>
     </entry>
 
@@ -247,21 +266,18 @@
                 <h:tr>
                     <h:th>Program</h:th>
                     <h:th>Description</h:th>
-                    <h:th>Reference</h:th>
                 </h:tr>
 
                 <h:tr>
-                    <h:td>nwchem</h:td>
+                    <h:td><h:a href="http://www.nwchem-sw.org/">nwchem</h:a></h:td>
                     <h:td>The Northwest Computational Chemistry Package
                         (NWChem)
                     </h:td>
-                    <h:td>nwchem website</h:td>
                 </h:tr>
 
                 <h:tr>
-                    <h:td>gaussian</h:td>
-                    <h:td>The Gaussian electronic structure coe</h:td>
-                    <h:td>gaussian website</h:td>
+                    <h:td><h:a href="http://www.gaussian.com/">gaussian</h:a></h:td>
+                    <h:td>The Gaussian electronic structure code</h:td>
                 </h:tr>
 
             </h:table>
@@ -275,8 +291,7 @@
         </definition>
         <description>
             <h:p>A title is not used for reference, though could be used
-                for
-                lexical indexing (e.g. by Solr). It often contains important metadata
+                for lexical indexing (e.g. by Solr). It often contains important metadata
                 that is not otherwise available in the output.
             </h:p>
         </description>
@@ -292,7 +307,6 @@
                 run the calculation. Ideally it should specify a version
                 in a version control system, although the version number
                 (e.g. 6.1) of the code is acceptable.</h:p>
-            <h:p class="example"></h:p>
             <h:a
                 href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
         </description>
