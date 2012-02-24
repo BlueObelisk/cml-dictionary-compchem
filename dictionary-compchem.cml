@@ -142,7 +142,7 @@
 
     <h:h2>Environment terms</h:h2>
 
-    <entry id="citation" dataType="xsd:string" unitType="unitType:unknown"
+    <entry id="citation" dataType="xsd:string" unitType="unitType:none" units="si:none"
         term="TODO">
         <definition>
             <h:p>TODO</h:p>
@@ -152,40 +152,56 @@
         </description>
     </entry>
 
+    <entry id="compile_date" dataType="xsd:string" unitType="unitType:unknown"
+        term="date">
+        <definition>
+            <h:p>The date that the executable was compiled.</h:p>
+        </definition>
+        <description>
+            <h:p>TODO</h:p>
+            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
+            
+        </description>
+    </entry>
+
     <entry id="date" dataType="xsd:string" unitType="unitType:unknown"
         term="date">
         <definition>
-            <h:p>An unspecified date</h:p>
+            <h:p>The date that the job commenced.</h:p>
         </definition>
         <description>
-            <h:p>no controlled syntax</h:p>
-            <h:p class="example">TODO</h:p>
+            <h:p>TODO</h:p>
+            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
+            
         </description>
     </entry>
 
-    <entry id="executable" dataType="xsd:string" unitType="unitType:none"
+    <entry id="executable" dataType="xsd:string" unitType="unitType:none" units="si:none"
         term="executable program">
         <definition>
-            <h:p>executable program</h:p>
+            <h:p>The path to the executable program</h:p>
         </definition>
         <description>
             <h:p>no controlled syntax</h:p>
             <h:p class="example">TODO</h:p>
+            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
         </description>
     </entry>
 
-    <entry id="hostname" dataType="xsd:string" unitType="unitType:none"
+    <entry id="hostname" dataType="xsd:string" unitType="unitType:none" units="si:none"
         term="host name">
         <definition>
-            <h:p>host name</h:p>
+            <h:p>The name of the host that the program was run on.</h:p>
         </definition>
         <description>
             <h:p>uncontrolled vocabulary</h:p>
             <h:p class="example">TODO</h:p>
+            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
+            
         </description>
     </entry>
 
-    <entry id="input" dataType="xsd:string" unitType="unitType:none"  term="program input">
+    <entry id="input" dataType="xsd:string" unitType="unitType:none" units="si:none" term="program input">
       <definition>
         <h:p>program input</h:p>
       </definition>
@@ -195,7 +211,7 @@
       </description>
     </entry>
 
-    <entry id="metadata" dataType="xsd:string" unitType="unitType:unknown"
+    <entry id="metadata" dataType="xsd:string" unitType="unitType:none" units="si:none"
         term="metadata">
         <definition>
             <h:p>metadata</h:p>
@@ -205,18 +221,18 @@
         </description>
     </entry>
 
-    <entry id="nproc" dataType="xsd:string" unitType="unitType:dimensionless"
+    <entry id="nproc" dataType="xsd:string" unitType="unitType:dimensionless" units="si:none"
         term="number of processors">
         <definition>
             <h:p>The number of processors used to run the job.</h:p>
         </definition>
         <description>
             <h:p>The number of processors the job was executed on.</h:p>
-            <h:p class="example">TODO</h:p>
+            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
         </description>
     </entry>
 
-    <entry id="program" dataType="xsd:string" unitType="unitType:unknown"
+    <entry id="program" dataType="xsd:string" unitType="unitType:none" units="si:none"
         term="program">
         <definition>
             <h:p>The program being run</h:p>
@@ -252,7 +268,7 @@
         </description>
     </entry>
 
-    <entry id="title" unitType="unitType:none" term="title"
+    <entry id="title" unitType="unitType:none" units="si:none" term="title"
         dataType="xsd:string">
         <definition>
             <h:p>An arbitrary title.</h:p>
@@ -266,7 +282,7 @@
         </description>
     </entry>
 
-    <entry id="version" dataType="xsd:string" unitType="unitType:none"
+    <entry id="program_version" dataType="xsd:string" unitType="unitType:none" units="si:none"
         term="program version">
         <definition>
             <h:p>program version</h:p>
@@ -276,9 +292,7 @@
                 run the calculation. Ideally it should specify a version
                 in a version control system, although the version number
                 (e.g. 6.1) of the code is acceptable.</h:p>
-            <h:p class="example">In NWChem, the version is printed in the Job
-                Information block printed at the start of the output,
-                and is called &quot;nwchem branch&quot;</h:p>
+            <h:p class="example"></h:p>
             <h:a
                 href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
         </description>
@@ -420,7 +434,7 @@
       </description>
     </entry>
 
-<h:h2>Static Molecular properties</h:h2>
+<h:h2>Static properties</h:h2>
 
     <entry id="atnum" unitType="unitType:unknown"  term="TODO atnum" dataType="xsd:integer">
       <definition>
@@ -684,26 +698,19 @@
       </description>
     </entry>
 
-    <entry id="nuclearDipole" dataType="xsd:string" unitType="unitType:unknown"  term="nuclear dipole">
+<entry id="nuclear_dipole_moment" dataType="xsd:double" unitType="unitType:electric_dipole_moment" term="nuclear dipole moment">
+<!--  <entry id="nuclear_electric_dipole_moment" term="nuclear electric dipole moment"> -->
       <definition>
-        <h:p>nuclear dipole</h:p>
+        <h:p>The nuclear electric dipole moment</h:p>
       </definition>
       <description>
-        <h:p>TODO</h:p>
+        <h:p>The electric dipole moment arising from the nuclear charges.</h:p>
         <h:p class="example">TODO</h:p>
+        <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/nucdipole.xml">jumbo template</h:a>
       </description>
-    </entry>
+</entry>
 
-    <entry id="nuclearEnergy" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-<entry id="nucrepener" term="Nuclear repulsion energy" dataType="xsd:double" units="nonSi:hartree"
+<entry id="nuclear_repulsion_energy" term="Nuclear repulsion energy" dataType="xsd:double" units="nonSi:hartree"
        unitType="unitType:energy">
     <definition>
         <h:p>The potential energy arising from Coulombic nuclei-nuclei repulsions.</h:p>
@@ -772,7 +779,7 @@
     </description>
 </entry>
 
-    <entry id="pointgroup" dataType="xsd:string" unitType="unitType:none"  term="molecular point group">
+    <entry id="pointgroup" dataType="xsd:string" unitType="unitType:none" units="si:none"  term="molecular point group">
         <dc:source>Wikipedia</dc:source>    
         <dc:creator>Jens Thomas</dc:creator>    
       <definition>
@@ -813,7 +820,7 @@
 
 <h:h2>Calculation properties</h:h2>
 
-    <entry id="basis" unitType="unitType:none"  term="basis set name" dataType="xsd:string">
+    <entry id="basis" unitType="unitType:none" units="si:none" term="basis set name" dataType="xsd:string">
       <definition>
         <h:p>The name of a basis set.</h:p>
       </definition>
