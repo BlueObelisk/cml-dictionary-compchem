@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
+<!DOCTYPE dictionary [
+<!ENTITY jumboNwchem "https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem">
+]>
 <dictionary
         xmlns="http://www.xml-cml.org/schema"
         xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -29,7 +32,7 @@
     </description>
     <dc:author>Weerapong Phadungsukanan</dc:author>
 
-<h:h2>Modules</h:h2>
+<!--Modules-->
 
     <entry id="calculation" term="calculation" dataType="cml:module"
         units="si:none" unitType="unitType:none">
@@ -39,8 +42,7 @@
         <description>
             <h:p>
                 A calculation module represents the concept of the model calculation
-                or
-                optimisation or iteration processes for computational job.
+                or optimisation or iteration processes for computational job.
             </h:p>
         </description>
     </entry>
@@ -54,21 +56,16 @@
         <description>
             <h:p>
                 The computing environment concept refers to a hardware platform,
-                software application,
-                the operating system and any hardware and software configurations used
-                in order to run
-                the job or computational task. The environment also includes the
-                metadata such as
-                machine id, username, starting and finishing date time, tools, compilers,
-                IP, etc.
+                software application, the operating system and any hardware and 
+                software configurations used in order to run the job or computational
+                task. The environment also includes the metadata such as machine id, 
+                username, starting and finishing date time, tools, compilers, IP, etc.
             </h:p>
             <h:p>
                 This information is not related to input and output of the model but is
-                supplementary to
-                the software application to run properly and may vary from machine to
-                machine.
-                Therefore, the computing environment is OPTIONAL element in the CompChem
-                convention.
+                supplementary to the software application to run properly and may vary 
+                from machine to machine. Therefore, the computing environment is OPTIONAL 
+                element in the CompChem convention.
             </h:p>
         </description>
     </entry>
@@ -80,7 +77,7 @@
         </definition>
         <description>
             <h:p>
-                A finalisation module represents the concept of the model results for
+                A finalization module represents the concept of the model results for
                 computational job.
             </h:p>
         </description>
@@ -89,13 +86,12 @@
     <entry id="initialization" term="initialization" dataType="cml:module"
         units="si:none" unitType="unitType:none">
         <definition>
-            <h:p>A initialisation module for a computational job</h:p>
+            <h:p>A initialization module for a computational job</h:p>
         </definition>
         <description>
             <h:p>
-                An initialisation module represents the concept of the model
-                parameters and
-                inputs for computational job.
+                An initialization module represents the concept of the model
+                parameters and inputs for computational job.
             </h:p>
         </description>
     </entry>
@@ -108,12 +104,9 @@
         <description>
             <h:p>
                 The job concept represents a computational job performed by
-                quantum chemistry
-                software, e.g. geometry optimisation job,
-                frequency analysis job. The job
-                concept is the smallest unit
-                which can fully describe a general picture of
-                computational
+                quantum chemistry software, e.g. geometry optimisation job,
+                frequency analysis job. The job concept is the smallest unit
+                which can fully describe a general picture of computational
                 modelling.
             </h:p>
         </description>
@@ -127,20 +120,18 @@
         <description>
             <h:p>
                 A quantum chemistry calculation is often comprised of a
-                series of subtasks,
-                <h:i>e.g.</h:i>
-                coarse optimisation -> fine optimisation -> NMR Spectrum
-                Analysis; this is
-                because most quantum chemistry software packages are designed to be
+                series of subtasks, <h:i>e.g.</h:i> coarse optimisation -> 
+                fine optimisation -> NMR Spectrum Analysis; this is because 
+                most quantum chemistry software packages are designed to be
                 modularised and only to perform a single task at a time.
-                The joblist concept
-                is introduced to capture these series of successive subtasks and links
-                the information from one subtask to the next subtask.
+                The joblist concept is introduced to capture these series of 
+                successive subtasks and links the information from one subtask 
+                to the next subtask.
             </h:p>
         </description>
     </entry>
 
-    <h:h2>Environment terms</h:h2>
+    <!--Environment terms-->
 
     <entry id="citation" dataType="xsd:string" unitType="unitType:none" units="si:none"
         term="TODO">
@@ -153,14 +144,14 @@
     </entry>
 
     <entry id="compile_date" dataType="xsd:string" unitType="unitType:unknown"
-        term="date">
+        term="compilation date">
         <definition>
             <h:p>The date that the executable was compiled.</h:p>
         </definition>
         <description>
             <h:p>The date that the executable used to run the job was compiled. This 
             can be useful for determining the version of the code that was used.</h:p>
-            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
+            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
             
         </description>
     </entry>
@@ -173,7 +164,7 @@
         <description>
             <h:p>The date that the job was started. For long-running jobs,
              this may not be the same as the completion date.</h:p>
-            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
+            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
         </description>
     </entry>
 
@@ -185,7 +176,7 @@
         <description>
             <h:p>Many programs print the path of the executable in the output. This can 
             be used to help determine which version of a code was used to run the job.</h:p>
-            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
+            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
         </description>
     </entry>
 
@@ -197,7 +188,7 @@
         <description>
             <h:p>For multi-processor jobs that were run on multiple hosts that have different
             names, this may be undefined.</h:p>
-            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
+            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
             
         </description>
     </entry>
@@ -210,7 +201,7 @@
         <h:p>>Where, available, this is input directives used to run the job and
         which could be used to recreate the job.</h:p>
         <h:p class="example">For a simple nwchem scf calculation on water, the input would be:</h:p>
-        <h:code>echo
+        <h:code><h:pre>echo
 start molecule
 
 title "scf calculation on water with 6.31g* basis"
@@ -226,7 +217,7 @@ basis
   H library 6-31g*
 end
 
-task scf</h:code>
+task scf</h:pre></h:code>
       </description>
     </entry>
 
@@ -247,7 +238,7 @@ task scf</h:code>
         </definition>
         <description>
             <h:p>The number of processors the job was executed on.</h:p>
-            <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
+            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
         </description>
     </entry>
 
@@ -308,11 +299,23 @@ task scf</h:code>
                 in a version control system, although the version number
                 (e.g. 6.1) of the code is acceptable.</h:p>
             <h:a
-                href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.xml">jumbo template</h:a>
+                href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
         </description>
     </entry>
 
-<h:h2>Miscellaneous </h:h2>
+<!--Miscellaneous -->
+
+
+    <entry id="calculation_type" term="Type of calculation"
+           dataType="xsd:string" unitType="unitType:unknown" >
+      <definition>
+        <h:p>calculationType</h:p>
+      </definition>
+      <description>
+        <h:p>Type of calculation</h:p>
+        <h:p class="example">TODO MOVE</h:p>
+      </description>
+    </entry>
 
     <entry id="compx" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
@@ -359,6 +362,30 @@ task scf</h:code>
       </definition>
       <description>
         <h:p>usable throughout cml documents. Need not be unique</h:p>
+      </description>
+    </entry>
+
+    <entry id="job_type" term="Job type" dataType="xsd:string" unitType="unitType:unknown">
+    <dc:author>Jens Thomas</dc:author>
+      <definition>
+        <h:p>The type of job being run.</h:p>
+      </definition>
+      <description>
+        <h:p>This describes the type of job being run, i.e. whether the job is a geometry 
+        optimisation, a single-point SCF calculation, a property calcluation, etc.</h:p>
+      </description>
+    </entry>
+
+    <entry id="method" term="Method" dataType="xsd:string" unitType="unitType:unknown">
+    <dc:author>Jens Thomas</dc:author>
+      <definition>
+        <h:p>The computational method being used in the current job</h:p>
+      </definition>
+      <description>
+        <h:p>This describes the (usu) electronic structure method being used in the current job, 
+        so whether this is a RHF, UHF, GVG, DFT, MP2, CCSD(T) etc. calculation. The method does 
+        not need to fully describe the job, just describe the overall category. Different attributes
+        of the job will then further describe what is being calculated.</h:p>
       </description>
     </entry>
 
@@ -448,7 +475,7 @@ task scf</h:code>
       </description>
     </entry>
 
-<h:h2>Static properties</h:h2>
+<!--Static properties-->
 
     <entry id="atnum" unitType="unitType:unknown"  term="TODO atnum" dataType="xsd:integer">
       <definition>
@@ -599,12 +626,15 @@ task scf</h:code>
       </description>
     </entry>
 
-    <entry id="charge" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="charge" term="charge" dataType="xsd:double" 
+    unitType="unitType:electric_charge" units="nonSi:elementary_charge">
       <definition>
-        <h:p>TODO</h:p>
+        <h:p>The total charge on the system in elementary charge units.</h:p>
       </definition>
       <description>
         <h:p>TODO</h:p>
+        <h:a href="&jumboNwchem;/log/templates/dftgradient.xml">jumbo template nwchem</h:a>
+        <h:a href="&jumboNwchem;/log/templates/scf.temp.xml">jumbo template nwchem</h:a>
       </description>
     </entry>
 
@@ -712,20 +742,25 @@ task scf</h:code>
       </description>
     </entry>
 
-<entry id="nuclear_dipole_moment" dataType="xsd:double" unitType="unitType:electric_dipole_moment" term="nuclear dipole moment">
+<entry id="nuclear_dipole_moment" term="nuclear dipole moment" 
+       unitType="unitType:electric_dipole_moment" dataType="xsd:double" >
 <!--  <entry id="nuclear_electric_dipole_moment" term="nuclear electric dipole moment"> -->
       <definition>
         <h:p>The nuclear electric dipole moment</h:p>
       </definition>
+      <!-- FIXME _ WORK IN PROGRESS 
+      <description role="cml:template">
+      <cmlx:vector3 units="$u" unitType="unitType:electric_dipole_moment">$f  $f $f</cmlx:vector3>
+      </description>
+      -->
       <description>
         <h:p>The electric dipole moment arising from the nuclear charges.</h:p>
-        <h:p class="example">TODO</h:p>
-        <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/nucdipole.xml">jumbo template</h:a>
+        <h:a href="&jumboNwchem;/log/templates/nucdipole.xml">jumbo template</h:a>
       </description>
 </entry>
 
-<entry id="nuclear_repulsion_energy" term="Nuclear repulsion energy" dataType="xsd:double" units="nonSi:hartree"
-       unitType="unitType:energy">
+<entry id="nuclear_repulsion_energy" term="Nuclear repulsion energy" 
+       units="nonSi:hartree" unitType="unitType:energy" dataType="xsd:double">
     <definition>
         <h:p>The potential energy arising from Coulombic nuclei-nuclei repulsions.</h:p>
         <h:p>
@@ -789,19 +824,35 @@ task scf</h:code>
     <description>
         <h:p>The nuclear repulsion energy is the sum of the repulsive Coulombic 
         interaction energies between the positively charged nuclei.</h:p>
-        <h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/effnucrep.xml">jumbo template</h:a>
+        <h:a href="&jumboNwchem;/log/templates/effnucrep.xml">jumbo template</h:a>
     </description>
 </entry>
 
-    <entry id="pointgroup" dataType="xsd:string" unitType="unitType:none" units="si:none"  term="molecular point group">
-        <dc:source>Wikipedia</dc:source>    
-        <dc:creator>Jens Thomas</dc:creator>    
+    <entry id="pointgroup" term="molecular point group" dataType="xsd:string" unitType="unitType:none" units="si:none">
+        <dc:source>Wikipedia</dc:source>
+        <dc:creator>Jens Thomas</dc:creator>
       <definition>
         <h:p>The molecular point group in Schoenflies notation.</h:p>
       </definition>
       <description>
         <h:p>The point group of the molecule defines the symmetry operations under which the molecule
         remains unchanged.</h:p>
+        <h:a href="http://en.wikipedia.org/wiki/Molecular_symmetry">wikipedia entry.</h:a>
+      </description>
+    </entry>
+
+    <entry id="spin_multiplicity" term="spin mulitplicity" dataType="xsd:integer" 
+     unitType="unitType:dimensionless" units="si:none">
+     <dc:source>Wikipedia</dc:source>
+     <dc:contributor>Jens Thomas</dc:contributor>
+      <definition>
+        <h:p>The spin multiplicity is equal to the number of alpha electrons,
+         minus beta electrons, plus 1</h:p>
+      </definition>
+      <description>
+        <h:p>When all electrons are paired, the spin multiplicity is 1, and the state is a 
+        singlet, with one unpaired electron, a doublet, two, a triplet, etc.</h:p>
+        <h:a href="http://en.wikipedia.org/wiki/Multiplicity_(chemistry)">wikipedia entry.</h:a>
       </description>
     </entry>
 
@@ -832,18 +883,282 @@ task scf</h:code>
       </description>
     </entry>
 
-<h:h2>Calculation properties</h:h2>
+<!--Calculation properties-->
 
-    <entry id="basis" unitType="unitType:none" units="si:none" term="basis set name" dataType="xsd:string">
+
+<!-- Basis set properties -->
+
+    <entry id="basis" term="basis set name" 
+        dataType="cml:list" unitType="unitType:none" units="si:none">
+        <definition>
+            <h:p>A cml list container for all information related to the basis set.
+            </h:p>
+        </definition>
+        <description>
+            <h:p>The basis set is the set of functions from which the electron orbitals are constructed.
+            </h:p>
+            <h:a href="http://en.wikipedia.org/wiki/Basis_set_(chemistry)">wikipedia link</h:a>
+            <h:a href="http://www.ccl.net/cca/documents/basis-sets/basis.html">CCL article</h:a>
+            <h:p>
+                The model here draws heavily from the work done by the
+                <h:a href="https://bse.pnl.gov/bse">EMSL basis set exchange</h:a>
+                , which is described in the paper:
+                <h:a href="http://pubs.acs.org/doi/abs/10.1021/ci600510j">
+                Basis Set Exchange: A Community Database for Computational Sciences
+                </h:a>.</h:p>
+           <h:p>Their <h:a href="https://bse.pnl.gov/bse/docs/schemas/">schemas</h:a>
+                are the basis for what we have done here and we would hope to keep the 
+                two efforts aligned as far as possible. </h:p>
+           <h:p>Within the context of conventions and dictionaries as detailed in the
+          <h:a href="http://dx.doi.org/10.1186/1758-2946-3-44">CML: Evolution and Design</h:a>
+                paper, we are using existing CML datatypes and this to hold all complex
+                data structures, with dictionary entries describing the element. Rather then using
+                matricies to hold the exponents and coefficients, arrays will be used.
+                Attributes (e.g. elementType on contractions) will be moved into separate elements,
+                with the convention used to enforce their appearance. This also means that the attributes 
+                will appear as dictionary entries with an associated explanation.
+                </h:p>
+            <h:p>To illustrate this, the STO-3G basis set for a calculation on water would be printed as
+            follows in the NWChem output:</h:p>
+            <h:pre>Basis "ao basis" -> "" (cartesian)
+                      -----
+  O (Oxygen)
+  ----------
+            Exponent  Coefficients
+       -------------- ---------------------------------------------------------
+  1 S  1.30709320E+02  0.154329
+  1 S  2.38088610E+01  0.535328
+  1 S  6.44360830E+00  0.444635
+
+  2 S  5.03315130E+00 -0.099967
+  2 S  1.16959610E+00  0.399513
+  2 S  3.80389000E-01  0.700115
+
+  3 P  5.03315130E+00  0.155916
+  3 P  1.16959610E+00  0.607684
+  3 P  3.80389000E-01  0.391957
+
+  H (Hydrogen)
+  ------------
+            Exponent  Coefficients
+       -------------- ---------------------------------------------------------
+  1 S  3.42525091E+00  0.154329
+  1 S  6.23913730E-01  0.535328
+  1 S  1.68855400E-01  0.444635
+
+
+
+ Summary of "ao basis" -> "" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ O                           sto-3g                  3        5   2s1p
+ H                           sto-3g                  1        1   1s
+</h:pre>
+<h:p>This would be marked up as follows:</h:p>
+<h:pre><cml:list id="basis_set" dictRef="compchem:basis_set">
+    <cml:scalar id="basis_set_title" dictRef="compchem:basis_set_title" dataType="xsd:string">sto-3g</cml:scalar>
+    <cml:scalar id="basis_set_type" dictRef="compchem:basis_set_type" dataType="xsd:string">orbital</cml:scalar>
+    <cml:scalar id="basis_set_harmonic_type" dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string">cartesian</cml:scalar>
+    <cml:scalar id="basis_set_contraction_type" dictRef="compchem:basis_set_contraction_type" dataType="xsd:string">general</cml:scalar>
+    <cml:scalar id="basis_set_description" dictRef="compchem:basis_set_description" dataType="xsd:string">ao basis</cml:scalar>
+    <cml:list id="basis_set_contractions" dictRef="compchem:basis_set_contractions">
+      <cml:scalar dataType="xsd:string" dictRef="compchem:atom_type">O</cml:scalar>
+      <cml:scalar dataType="xsd:string" dictRef="compchem:element_type">O</cml:scalar>
+      <cml:scalar dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"/>
+      <cml:list dictRef="compchem:basis_set_contraction">
+        <cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string">S</cml:scalar>
+        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3">130.70932 23.808861 6.4436083</cml:array>
+        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3">0.154329 0.535328 0.444635</cml:array>
+      </cml:list>
+      <cml:list dictRef="compchem:basis_set_contraction">
+        <cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string">S</cml:scalar>
+        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3">5.0331513 1.1695961 0.380389</cml:array>
+        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3">-0.099967 0.399513 0.700115</cml:array>
+      </cml:list>
+      <cml:list dictRef="compchem:basis_set_contraction">
+        <cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string">P</cml:scalar>
+        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3">5.0331513 1.1695961 0.380389</cml:array>
+        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3">0.155916 0.607684 0.391957</cml:array>
+      </cml:list>
+    </cml:list>
+    <cml:list id="basis_set_contractions" dictRef="compchem:basis_set_contractions">
+      <cml:scalar dataType="xsd:string" dictRef="compchem:atom_type">H</cml:scalar>
+      <cml:scalar dataType="xsd:string" dictRef="compchem:element_type">H</cml:scalar>
+      <cml:scalar dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"/>
+      <cml:list dictRef="compchem:basis_set_contraction">
+        <cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string">S</cml:scalar>
+        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3">3.42525091 0.62391373 0.1688554</cml:array>
+        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3">0.154329 0.535328 0.444635</cml:array>
+      </cml:list>
+    </cml:list>
+  </cml:list>
+</h:pre>
+        </description>
+</entry>
+
+
+    
+    <entry id="basis_set_title" term="Basis set title" 
+      dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
-        <h:p>The name of a basis set.</h:p>
+        <h:p>The name of the basis set if the same basis set was used throughout the calculation. If
+        different named basis sets were used on different atoms, this will be undefined.</h:p>
       </definition>
       <description>
-        <h:p>The basis set name should map to one of the names as listed in the 
-        EMSL basis set library.</h:p>
+        <h:p>This is the name or title of the basis set and should be one of names used within the
+        <h:a href="http://bse.pnl.gov/">EMSL Basis Set Exchange</h:a>. This corresponds to the Dublin
+         core <h:a href="http://dublincore.org/documents/dces">title</h:a>element of the basisSet in the 
+         BSE schema.</h:p>
+         <h:p>The title for the basis set is only valid if the same basis set is applied throughout the 
+         calculation. If, for example &quot;3-21G&quot; was used for Hydrogen and &quot;6-311G**&quot;
+         on everything else, it will not be possible to assign a single name here</h:p>
+      </description>
+    </entry>
+ 
+ 
+     <entry id="basis_set_type" term="Basis set type" 
+      dataType="xsd:string" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>The type of the basis set.</h:p>
+      </definition>
+      <description>
+        <h:p>This corresponds to the &quot;basisSetType&quot; in the EMSL schema. Valid values are:</h:p>
+        <h:ul>
+            <h:li>orbital</h:li>
+            <h:li>dftorb</h:li>
+            <h:li>dftxfit</h:li>
+            <h:li>dftcfit</h:li>
+            <h:li>periodic</h:li>
+            <h:li>ecporb</h:li>
+            <h:li>spinorb</h:li>
+            <h:li>polarization</h:li>
+            <h:li>diffuse</h:li>
+            <h:li>tight</h:li>
+            <h:li>rydberg</h:li>
+       </h:ul>
+      </description>
+    </entry>
+    
+     <entry id="basis_set_harmonic_type" term="Basis set type" 
+      dataType="xsd:string" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>The type of the angular functions used in basis set.</h:p>
+      </definition>
+      <description>
+        <h:p></h:p>
+        <h:p>This corresponds to the &quot;harmonicType&quot; in the EMSL schema. Valid values are:</h:p>
+        <h:ul>
+            <h:li>cartesian</h:li>
+            <h:li>spherical</h:li>
+       </h:ul>
+       <h:p>For higher angular momentum (l>2), basis functions can be described in cartesian 
+       (6 d, 10 f, 15 g, ...) or spherical form (5 d, 7 f, 9 g, ...). Most programs work in cartesians
+       by default, although, particularly for correlated calculations, the higher number of functions
+       in the cartesian form becomes significant, and it becomes more efficient to use the spherical form.
+        This is described more fully in the following paper:  <h:a href="http://dx.doi.org/10.1002/qua.560540202">
+       Transformation between Cartesian and pure spherical harmonic Gaussians</h:a></h:p>
+      </description>
+    </entry>
+    
+    <entry id="basis_set_contraction_type" term="Basis set contraction type" 
+    dataType="xsd:string" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>The contraction type of the basis set.</h:p>
+      </definition>
+      <description>
+      <h:p>This describes how the gaussian functions in the basis are contracted to generate
+        the basis functions. With segmented, each gaussian primitive only contributes to one 
+        contraction, whereas with a general contraction, each primitive can contribute to every
+        contraction.</h:p>
+        <h:p>This corresponds to the &quot;contractionType&quot; in the EMSL schema. Valid values are:</h:p>
+        <h:ul>
+            <h:li>segmented</h:li>
+            <h:li>general</h:li>
+            <h:li>uncontracted</h:li>
+       </h:ul>
+      </description>
+    </entry>
+    
+   <entry id="basis_set_description" term="Basis set description" 
+    dataType="xsd:string" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>A description of the basis set.</h:p>
+      </definition>
+      <description>
+      <h:p>TODO</h:p>
+      </description>
+    </entry>
+    
+   <entry id="basis_set_contractions" term="Basis set contractions" 
+    dataType="cml:list" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>The cml:list container for the contractions relating to a particular atom type.</h:p>
+      </definition>
+      <description>
+      <h:p>This holds all the information relating to a basis set on an atom. It contains an element
+      for the atom_type which is the &quot;tag&quot; that was used to link it to an individual atom
+      in the calculation, an element_type which describes the type of element the contractions relate
+      to, the harmonic_type of the contractions, and then a list of contraction elements.</h:p>
+      </description>
+    </entry>
+    
+    <entry id="basis_set_shell" term="Basis set shell" 
+    dataType="xsd:string" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>The label for the contraction shell.</h:p>
+      </definition>
+      <description>
+        <h:p>This corresponds to the &quot;shellType&quot; in the EMSL schema. Valid values are:</h:p>
+        <h:ul>
+            <h:li>S</h:li>
+            <h:li>P</h:li>
+            <h:li>SP</h:li>
+            <h:li>D</h:li>
+            <h:li>F</h:li>
+            <h:li>G</h:li>
+            <h:li>H</h:li>
+            <h:li>I</h:li>
+            <h:li>K</h:li>
+            <h:li>L</h:li>
+            <h:li>M</h:li>
+       </h:ul>
+      </description>
+    </entry>
+    
+   <entry id="basis_set_contraction" term="Basis set contraction" 
+    dataType="cml:list" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>The cml:list container for an individual contraction.</h:p>
+      </definition>
+      <description>
+        <h:p>This corresponds to an individual &quot;contraction&quot; element in the EMSL schema, and 
+        holds the data for the contraction, including the shell_type, and exponents and coefficients.</h:p>
+      </description>
+    </entry>
+    
+   <entry id="basis_set_exponent" term="Basis set exponent" 
+    dataType="cml:array" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>A cml:array holding the list of exponents for an individual contraction.</h:p>
+      </definition>
+      <description>
+        <h:p>TODO</h:p>
+      </description>
+    </entry>
+    
+  <entry id="basis_set_coefficient" term="Basis set coefficient "
+    dataType="cml:array" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>A cml:array holding the list of coefficients for an individual contraction.</h:p>
+      </definition>
+      <description>
+        <h:p>TODO</h:p>
       </description>
     </entry>
 
+
+<!-- These are now redundant
     <entry id="basis.coefficient" term="TODO" dataType="xsd:string" units="si:none"
       unitType="unitType:none">
       <definition>
@@ -882,17 +1197,9 @@ task scf</h:code>
         <h:p>TODO</h:p>
       </description>
     </entry>
-
-    <entry id="calculationType" dataType="xsd:string" unitType="unitType:unknown"  term="Type of calculation">
-      <definition>
-        <h:p>calculationType</h:p>
-      </definition>
-      <description>
-        <h:p>Type of calculation</h:p>
-        <h:p class="example">TODO MOVE</h:p>
-      </description>
-    </entry>
     
+-->
+
     <entry id="cputime" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
       <definition>
         <h:p>TODO</h:p>
@@ -948,12 +1255,8 @@ task scf</h:code>
         <h:p>serial number of iteration TODO MOVE</h:p>
       </description>
     </entry>
-    <!-- unitType should be added to entry attributes <entry id="energy" 
-     dataType="xsd:string" unitType="unitType:unknown"  term="energy" dataType="xsd:double" unitType="unitType:energy"> <definition><h:p>energy</h:p></definition> 
-      <description><h:p>energy of unspecified typeTODO MOVE</h:p></description> 
-      </entry> 
-      -->
-      
+    
+
     <entry id="rmsdens" unitType="unitType:unknown"  term="RMS electron density" dataType="xsd:double">
       <definition>
         <h:p>rms density</h:p>
@@ -973,7 +1276,7 @@ task scf</h:code>
       </description>
     </entry>
 
-    <entry id="time" unitType="unitType:unknown"  term="cumulative time" dataType="xsd:double">
+    <entry id="time" term="cumulative time" unitType="unitType:unknown" dataType="xsd:double">
       <definition>
         <h:p>cumulative time</h:p>
       </definition>
@@ -982,7 +1285,7 @@ task scf</h:code>
       </description>
     </entry>
     
-    <entry id="walltime" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="walltime" term="TODO" dataType="xsd:string" unitType="unitType:unknown">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -991,9 +1294,9 @@ task scf</h:code>
       </description>
     </entry>
 
-<h:h2>Calculated Energies</h:h2>
+<!--Calculated Energies-->
 
-    <entry id="coulomb" unitType="unitType:unknown"  term="Coulomb energy" dataType="xsd:double">
+    <entry id="coulomb" term="Coulomb energy" unitType="unitType:unknown"  dataType="xsd:double">
       <definition>
         <h:p>Coulomb energy</h:p>
       </definition>
@@ -1002,7 +1305,7 @@ task scf</h:code>
       </description>
     </entry>
 
-    <entry id="ener1e" unitType="unitType:unknown"  term="1-electron energy" dataType="xsd:double">
+    <entry id="ener1e" term="1-electron energy" unitType="unitType:unknown" dataType="xsd:double">
       <definition>
         <h:p>1-electron energy</h:p>
       </definition>
@@ -1011,7 +1314,7 @@ task scf</h:code>
       </description>
     </entry>
     
-    <entry id="ener2e" unitType="unitType:unknown"  term="TODO ener2e" dataType="xsd:double">
+    <entry id="ener2e" term="TODO ener2e" unitType="unitType:unknown"  dataType="xsd:double">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -1057,12 +1360,13 @@ task scf</h:code>
       </description>
     </entry>
 
-    <entry id="sumatomener" unitType="unitType:unknown"  term="Sum of atom energies" dataType="xsd:double">
+   <entry id="sumatomener" term="Sum of atom energies"
+           dataType="xsd:double" unitType="unitType:energy" units="nonSi:hartree">
       <definition>
-        <h:p>Sum of atom energies</h:p>
+        <h:p>The sum of the atomic energies.</h:p>
       </definition>
       <description>
-        <h:p>Sum of atom energies</h:p>
+        <h:p>TODO.</h:p>
       </description>
     </entry>
     
