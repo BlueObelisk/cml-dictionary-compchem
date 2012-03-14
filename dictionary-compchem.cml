@@ -896,9 +896,9 @@ task scf</h:pre></h:code>
         </definition>
         <description>
             <h:p>The basis set is the set of functions from which the electron orbitals are constructed.
-            </h:p>
-            <h:a href="http://en.wikipedia.org/wiki/Basis_set_(chemistry)">wikipedia link</h:a>
-            <h:a href="http://www.ccl.net/cca/documents/basis-sets/basis.html">CCL article</h:a>
+            more information can be found on 
+            <h:a href="http://en.wikipedia.org/wiki/Basis_set_(chemistry)">wikipedia</h:a> or in Jan Labanowsk's
+            <h:a href="http://www.ccl.net/cca/documents/basis-sets/basis.html">CCL article</h:a>.</h:p>
             <h:p>
                 The model here draws heavily from the work done by the
                 <h:a href="https://bse.pnl.gov/bse">EMSL basis set exchange</h:a>
@@ -916,7 +916,7 @@ task scf</h:pre></h:code>
                 matricies to hold the exponents and coefficients, arrays will be used.
                 Attributes (e.g. elementType on contractions) will be moved into separate elements,
                 with the convention used to enforce their appearance. This also means that the attributes 
-                will appear as dictionary entries with an associated explanation.
+                will appear as dictionary entries here with an associated explanation.
                 </h:p>
             <h:p>To illustrate this, the STO-3G basis set for a calculation on water would be printed as
             follows in the NWChem output:</h:p>
@@ -956,43 +956,43 @@ task scf</h:pre></h:code>
  H                           sto-3g                  1        1   1s
 </h:pre>
 <h:p>This would be marked up as follows:</h:p>
-<h:pre><cml:list id="basis_set" dictRef="compchem:basis_set">
-    <cml:scalar id="basis_set_title" dictRef="compchem:basis_set_title" dataType="xsd:string">sto-3g</cml:scalar>
-    <cml:scalar id="basis_set_type" dictRef="compchem:basis_set_type" dataType="xsd:string">orbital</cml:scalar>
-    <cml:scalar id="basis_set_harmonic_type" dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string">cartesian</cml:scalar>
-    <cml:scalar id="basis_set_contraction_type" dictRef="compchem:basis_set_contraction_type" dataType="xsd:string">general</cml:scalar>
-    <cml:scalar id="basis_set_description" dictRef="compchem:basis_set_description" dataType="xsd:string">ao basis</cml:scalar>
-    <cml:list id="basis_set_contractions" dictRef="compchem:basis_set_contractions">
-      <cml:scalar dataType="xsd:string" dictRef="compchem:atom_type">O</cml:scalar>
-      <cml:scalar dataType="xsd:string" dictRef="compchem:element_type">O</cml:scalar>
-      <cml:scalar dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"/>
-      <cml:list dictRef="compchem:basis_set_contraction">
-        <cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string">S</cml:scalar>
-        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3">130.70932 23.808861 6.4436083</cml:array>
-        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3">0.154329 0.535328 0.444635</cml:array>
-      </cml:list>
-      <cml:list dictRef="compchem:basis_set_contraction">
-        <cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string">S</cml:scalar>
-        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3">5.0331513 1.1695961 0.380389</cml:array>
-        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3">-0.099967 0.399513 0.700115</cml:array>
-      </cml:list>
-      <cml:list dictRef="compchem:basis_set_contraction">
-        <cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string">P</cml:scalar>
-        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3">5.0331513 1.1695961 0.380389</cml:array>
-        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3">0.155916 0.607684 0.391957</cml:array>
-      </cml:list>
-    </cml:list>
-    <cml:list id="basis_set_contractions" dictRef="compchem:basis_set_contractions">
-      <cml:scalar dataType="xsd:string" dictRef="compchem:atom_type">H</cml:scalar>
-      <cml:scalar dataType="xsd:string" dictRef="compchem:element_type">H</cml:scalar>
-      <cml:scalar dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"/>
-      <cml:list dictRef="compchem:basis_set_contraction">
-        <cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string">S</cml:scalar>
-        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3">3.42525091 0.62391373 0.1688554</cml:array>
-        <cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3">0.154329 0.535328 0.444635</cml:array>
-      </cml:list>
-    </cml:list>
-  </cml:list>
+<h:pre>&lt;cml:list id="basis_set" dictRef="compchem:basis_set"&gt;
+    &lt;cml:scalar id="basis_set_title" dictRef="compchem:basis_set_title" dataType="xsd:string"&gt;sto-3g&lt;/cml:scalar&gt;
+    &lt;cml:scalar id="basis_set_type" dictRef="compchem:basis_set_type" dataType="xsd:string"&gt;orbital&lt;/cml:scalar&gt;
+    &lt;cml:scalar id="basis_set_harmonic_type" dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"&gt;cartesian&lt;/cml:scalar&gt;
+    &lt;cml:scalar id="basis_set_contraction_type" dictRef="compchem:basis_set_contraction_type" dataType="xsd:string"&gt;general&lt;/cml:scalar&gt;
+    &lt;cml:scalar id="basis_set_description" dictRef="compchem:basis_set_description" dataType="xsd:string"&gt;ao basis&lt;/cml:scalar&gt;
+    &lt;cml:list id="basis_set_contractions" dictRef="compchem:basis_set_contractions"&gt;
+      &lt;cml:scalar dataType="xsd:string" dictRef="compchem:atom_type"&gt;O&lt;/cml:scalar&gt;
+      &lt;cml:scalar dataType="xsd:string" dictRef="compchem:element_type"&gt;O&lt;/cml:scalar&gt;
+      &lt;cml:scalar dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"/&gt;
+      &lt;cml:list dictRef="compchem:basis_set_contraction"&gt;
+        &lt;cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string"&gt;S&lt;/cml:scalar&gt;
+        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3"&gt;130.70932 23.808861 6.4436083&lt;/cml:array&gt;
+        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3"&gt;0.154329 0.535328 0.444635&lt;/cml:array&gt;
+      &lt;/cml:list&gt;
+      &lt;cml:list dictRef="compchem:basis_set_contraction"&gt;
+        &lt;cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string"&gt;S&lt;/cml:scalar&gt;
+        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3"&gt;5.0331513 1.1695961 0.380389&lt;/cml:array&gt;
+        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3"&gt;-0.099967 0.399513 0.700115&lt;/cml:array&gt;
+      &lt;/cml:list&gt;
+      &lt;cml:list dictRef="compchem:basis_set_contraction"&gt;
+        &lt;cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string"&gt;P&lt;/cml:scalar&gt;
+        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3"&gt;5.0331513 1.1695961 0.380389&lt;/cml:array&gt;
+        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3"&gt;0.155916 0.607684 0.391957&lt;/cml:array&gt;
+      &lt;/cml:list&gt;
+    &lt;/cml:list&gt;
+    &lt;cml:list id="basis_set_contractions" dictRef="compchem:basis_set_contractions"&gt;
+      &lt;cml:scalar dataType="xsd:string" dictRef="compchem:atom_type"&gt;H&lt;/cml:scalar&gt;
+      &lt;cml:scalar dataType="xsd:string" dictRef="compchem:element_type"&gt;H&lt;/cml:scalar&gt;
+      &lt;cml:scalar dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"/&gt;
+      &lt;cml:list dictRef="compchem:basis_set_contraction"&gt;
+        &lt;cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string"&gt;S&lt;/cml:scalar&gt;
+        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3"&gt;3.42525091 0.62391373 0.1688554&lt;/cml:array&gt;
+        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3"&gt;0.154329 0.535328 0.444635&lt;/cml:array&gt;
+      &lt;/cml:list&gt;
+    &lt;/cml:list&gt;
+  &lt;/cml:list&gt;
 </h:pre>
         </description>
 </entry>
@@ -1008,7 +1008,7 @@ task scf</h:pre></h:code>
       <description>
         <h:p>This is the name or title of the basis set and should be one of names used within the
         <h:a href="http://bse.pnl.gov/">EMSL Basis Set Exchange</h:a>. This corresponds to the Dublin
-         core <h:a href="http://dublincore.org/documents/dces">title</h:a>element of the basisSet in the 
+         core <h:a href="http://dublincore.org/documents/dces">title</h:a> element of the &quot;basisSet&quot; in the 
          BSE schema.</h:p>
          <h:p>The title for the basis set is only valid if the same basis set is applied throughout the 
          calculation. If, for example &quot;3-21G&quot; was used for Hydrogen and &quot;6-311G**&quot;
