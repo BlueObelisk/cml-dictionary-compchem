@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<!DOCTYPE dictionary [
-<!ENTITY jumboNwchem "https://bitbucket.org/wwmm/jumbo-converters/src/5bee7e407c43/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem">
-]>
 <dictionary
         xmlns="http://www.xml-cml.org/schema"
         xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -37,20 +34,28 @@
     <entry id="calculation" term="calculation" dataType="cml:module"
         units="si:none" unitType="unitType:none">
         <definition>
-            <h:p>A calculation module for a computational job</h:p>
+            <h:p>A calculation module for a computational job.</h:p>
         </definition>
         <description>
             <h:p>
-                A calculation module represents the concept of the model calculation
-                or optimisation or iteration processes for computational job.
-            </h:p>
+                A calculation module represents the concept of the model calculation,
+                optimisation or iteration processes for a computational job. Almost any computational procedure is a
+                calculation, and calculations can be nested to any level. As an example, an SCF calculation consists 
+                of an initial guess calculation, and a number of iterative calculations, the output of the final iteration
+                constituting the results. An SCF geometry optimisation process consists of multiple calculation steps,
+                each of which consists of an SCF calculation, followed by a gradient calculation.</h:p>
+                
+             <h:p>A calculation must contain an <h:a href="#initialization">initialization</h:a> module, which defines
+             the inputs to the calculation (and therefore the calculation), and a <h:a href="#finalization">finalization </h:a> 
+             module, which holds all outputs. The calculation module may contain many other modules describing the process 
+             of the calculation, but that may not necessarily be desirable as results.</h:p>
         </description>
     </entry>
 
     <entry id="environment" term="environment" dataType="cml:module"
         units="si:none" unitType="unitType:none">
         <definition>
-            <h:p>Module holding concepts relating to environment that
+            <h:p>Module holding concepts relating to the environment that
                 the job used or required</h:p>
         </definition>
         <description>
@@ -58,7 +63,7 @@
                 The computing environment concept refers to a hardware platform,
                 software application, the operating system and any hardware and 
                 software configurations used in order to run the job or computational
-                task. The environment also includes the metadata such as machine id, 
+                task. The environment includes the metadata such as machine id, 
                 username, starting and finishing date time, tools, compilers, IP, etc.
             </h:p>
             <h:p>
@@ -73,25 +78,41 @@
     <entry id="finalization" term="finalization" dataType="cml:module"
         units="si:none" unitType="unitType:none">
         <definition>
-            <h:p>A finalization module for a computational job</h:p>
+            <h:p>A finalization module for a computational job or calculation.</h:p>
         </definition>
         <description>
             <h:p>
-                A finalization module represents the concept of the model results for
-                computational job.
+                A finalization module represents the concept of the model results for a
+                computational job or calculation. This will usually be the output properties of the
+                final calculation carried out by the job. The finalization module should
+                contain a propertyList with scalar, array and matrix quantities, but may
+                also contain more complex objects such as molecules or orbitals as cml:lists. For a job
+                or calculation with multiple child calculations, the finalization may consist
+                of an aggregation of the key results from the child calculations.
             </h:p>
+           <h:p class="example">For an SCF calculation, the 
+                finalization module should contain the calculated energies, together with information
+                on the attained convergence (e.g. norm of the gradient) and the orbitals. For an SCF optimisation,
+                it will contain the above, together with the final molecular coordinates and information
+                on the geometry convergence criteria.</h:p>
+            
         </description>
     </entry>
 
     <entry id="initialization" term="initialization" dataType="cml:module"
         units="si:none" unitType="unitType:none">
         <definition>
-            <h:p>A initialization module for a computational job</h:p>
+            <h:p>An initialization module for a computational job or calculation</h:p>
         </definition>
         <description>
             <h:p>
                 An initialization module represents the concept of the model
-                parameters and inputs for computational job.
+                parameters and inputs for computational job. The module defines the
+                calculation, so that it should be possible to reproduce the calculation
+                based soley on the data in this module. The initialization module should
+                contain a parameterList with scalar, array and matrix quantities, and the
+                starting molecule, but may also contain more complex objects as cml:lists, such as the
+                <h:a href="#basis_set">basis set</h:a>.
             </h:p>
         </description>
     </entry>
@@ -103,26 +124,28 @@
         </definition>
         <description>
             <h:p>
-                The job concept represents a computational job performed by
-                quantum chemistry software, e.g. geometry optimisation job,
-                frequency analysis job. The job concept is the smallest unit
-                which can fully describe a general picture of computational
-                modelling.
-            </h:p>
+                The job concept represents a computational job performed by  quantum chemistry software, 
+                e.g. geometry optimisation job,  frequency analysis job. The job can be considered as the unit of work
+                that would be submitted to a computational resource. In almost all respects a job is identical
+                to a <h:a href="#calculation">calculation</h:a>, in that it has an <h:a href="#initialization">initialization</h:a> 
+                module, which holds the inputs for the calculation(s) to be run, and a <h:a href="#finalization">finalization</h:a>
+                 module, which holds all outputs.  In addition, a job may contain an <h:a href="#environment">environment</h:a> 
+                 module, which describes the conditions under which the job was run, such as the program (and version) used, 
+                 hostname, number of CPUs etc.</h:p>
         </description>
     </entry>
 
     <entry id="jobList" term="job list" dataType="cml:module"
         units="si:none" unitType="unitType:none">
         <definition>
-            <h:p>A list of computational job</h:p>
+            <h:p>A list of computational jobs</h:p>
         </definition>
         <description>
             <h:p>
                 A quantum chemistry calculation is often comprised of a
                 series of subtasks, <h:i>e.g.</h:i> coarse optimisation -> 
                 fine optimisation -> NMR Spectrum Analysis; this is because 
-                most quantum chemistry software packages are designed to be
+                most quantum chemistry software s are designed to be
                 modularised and only to perform a single task at a time.
                 The joblist concept is introduced to capture these series of 
                 successive subtasks and links the information from one subtask 
@@ -133,16 +156,6 @@
 
     <!--Environment terms-->
 
-    <entry id="citation" dataType="xsd:string" unitType="unitType:none" units="si:none"
-        term="TODO">
-        <definition>
-            <h:p>TODO</h:p>
-        </definition>
-        <description>
-            <h:p>TODO</h:p>
-        </description>
-    </entry>
-
     <entry id="compile_date" dataType="xsd:string" unitType="unitType:unknown"
         term="compilation date">
         <definition>
@@ -151,8 +164,7 @@
         <description>
             <h:p>The date that the executable used to run the job was compiled. This 
             can be useful for determining the version of the code that was used.</h:p>
-            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
-            
+            <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.info.xml">Jumbo NWChem template</h:a></h:p>
         </description>
     </entry>
 
@@ -164,7 +176,7 @@
         <description>
             <h:p>The date that the job was started. For long-running jobs,
              this may not be the same as the completion date.</h:p>
-            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
+            <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.info.xml">Jumbo NWChem template</h:a></h:p>
         </description>
     </entry>
 
@@ -176,7 +188,7 @@
         <description>
             <h:p>Many programs print the path of the executable in the output. This can 
             be used to help determine which version of a code was used to run the job.</h:p>
-            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
+            <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.info.xml">Jumbo NWChem template</h:a></h:p>
         </description>
     </entry>
 
@@ -186,10 +198,9 @@
             <h:p>The name of the host that the program was run on.</h:p>
         </definition>
         <description>
-            <h:p>For multi-processor jobs that were run on multiple hosts that have different
-            names, this may be undefined.</h:p>
-            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
-            
+            <h:p>For multi-processor jobs that were run on multiple hosts this should be the master
+            node or may be undefined.</h:p>
+            <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.info.xml">Jumbo NWChem template</h:a></h:p>
         </description>
     </entry>
 
@@ -200,7 +211,7 @@
       <description>
         <h:p>>Where, available, this is input directives used to run the job and
         which could be used to recreate the job.</h:p>
-        <h:p class="example">For a simple nwchem scf calculation on water, the input would be:</h:p>
+        <h:p class="example">For a simple NWChem scf calculation on water, the input would be:</h:p>
         <h:code><h:pre>echo
 start molecule
 
@@ -221,15 +232,6 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="metadata" dataType="xsd:string" unitType="unitType:none" units="si:none"
-        term="metadata">
-        <definition>
-            <h:p>metadata</h:p>
-        </definition>
-        <description>
-            <h:p>Metadata TODO MOVE</h:p>
-        </description>
-    </entry>
 
     <entry id="nproc" dataType="xsd:string" unitType="unitType:dimensionless" units="si:none"
         term="number of processors">
@@ -238,7 +240,7 @@ task scf</h:pre></h:code>
         </definition>
         <description>
             <h:p>The number of processors the job was executed on.</h:p>
-            <h:a href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
+            <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.info.xml">Jumbo NWChem template</h:a></h:p>
         </description>
     </entry>
 
@@ -248,7 +250,7 @@ task scf</h:pre></h:code>
             <h:p>The program being run</h:p>
         </definition>
         <description>
-            <h:p>This is the name of the computational chemistry package
+            <h:p>This is the name of the computational chemistry program
                 being run.
                 Known values for this are listed in the table below.
             </h:p>
@@ -272,6 +274,7 @@ task scf</h:pre></h:code>
                 </h:tr>
 
             </h:table>
+            <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/nccp.xml">Jumbo NWChem template</h:a></h:p>
         </description>
     </entry>
 
@@ -297,62 +300,53 @@ task scf</h:pre></h:code>
             <h:p>This specifies the version of the code that was used to
                 run the calculation. Ideally it should specify a version
                 in a version control system, although the version number
-                (e.g. 6.1) of the code is acceptable.</h:p>
-            <h:a
-                href="&jumboNwchem;/log/templates/job.xml">jumbo template</h:a>
+                (e.g. 6.1, Development) of the code is acceptable.</h:p>
+            <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/nccp.xml">Jumbo NWChem template</h:a></h:p>
         </description>
     </entry>
 
 <!--Miscellaneous -->
 
 
-    <entry id="calculation_type" term="Type of calculation"
+    <entry id="method" term="Method"
            dataType="xsd:string" unitType="unitType:unknown" >
       <definition>
-        <h:p>calculationType</h:p>
+        <h:p>The type of computational method that is being used in the calculation. Example values are:</h:p>
+        <h:ul>
+        <h:li>SCF</h:li>
+        <h:li>DFT</h:li>
+        <h:li>MP2</h:li>
+        </h:ul>
       </definition>
       <description>
-        <h:p>Type of calculation</h:p>
-        <h:p class="example">TODO MOVE</h:p>
+        <h:p>This identifies the type of computation that is being carried out and should be a string that
+        identifies the broad class of computation that is being undertaken. There are many different variants
+        of the various computational methods (e.g. DFT with different functionals) and approximations that can 
+        be applied to each one (e.g. Resolution of the Identity to DFT and MP2), which would lead to a large
+        number of possibilities and difficulty identifying calculations of a particular class. For this reason,
+        this term only describes the main method.</h:p>
       </description>
     </entry>
 
-    <entry id="compx" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
+    <entry id="task" term="Task"
+           dataType="xsd:string" unitType="unitType:unknown" >
       <definition>
-        <h:p>TODO</h:p>
+        <h:p>The task that is being carried out by the job or calculation. Acceptable values are:</h:p>
+        <h:ul>
+        <h:li>energy</h:li>
+        <h:li>frequency</h:li>
+        <h:li>geometry_optimization</h:li>
+        <h:li>gradient</h:li>
+        <h:li>initial_guess</h:li>
+        <h:li>iteration</h:li>
+        <h:li>step</h:li>
+        </h:ul>
       </definition>
       <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="compy" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="compz" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="data" unitType="unitType:unknown"  term="data" dataType="xsd:string">
-      <definition>
-        <h:p>data</h:p>
-      </definition>
-      <description>
-        <h:p>TODO MOVE</h:p>
+        <h:p>The describes what the job or calcualtion is aiming to do. For a single SCF calculation, the
+        task is an energy, while the task for an individual SCF iteration calculation within the SCF is an iteration.</h:p>
+        <h:p>Jobs and calculation both use the task term, although a job would only be expected to use the 
+        more general terms (such as energy or geometry_optimization).</h:p>
       </description>
     </entry>
 
@@ -361,49 +355,26 @@ task scf</h:pre></h:code>
         <h:p>A CML id</h:p>
       </definition>
       <description>
-        <h:p>usable throughout cml documents. Need not be unique</h:p>
+        <h:p>Usable throughout cml documents. Need not be unique</h:p>
       </description>
     </entry>
 
-    <entry id="job_type" term="Job type" dataType="xsd:string" unitType="unitType:unknown">
-    <dc:author>Jens Thomas</dc:author>
+    <entry id="iteration_index" term="serial number of iteration" 
+           unitType="unitType:unknown" dataType="xsd:integer">
       <definition>
-        <h:p>The type of job being run.</h:p>
+        <h:p>The serial number of an iteration.</h:p>
       </definition>
       <description>
-        <h:p>This describes the type of job being run, i.e. whether the job is a geometry 
-        optimisation, a single-point SCF calculation, a property calcluation, etc.</h:p>
+        <h:p>The serial number of an iteration.</h:p>
       </description>
     </entry>
 
-    <entry id="method" term="Method" dataType="xsd:string" unitType="unitType:unknown">
-    <dc:author>Jens Thomas</dc:author>
-      <definition>
-        <h:p>The computational method being used in the current job</h:p>
-      </definition>
-      <description>
-        <h:p>This describes the (usu) electronic structure method being used in the current job, 
-        so whether this is a RHF, UHF, GVG, DFT, MP2, CCSD(T) etc. calculation. The method does 
-        not need to fully describe the job, just describe the overall category. Different attributes
-        of the job will then further describe what is being calculated.</h:p>
-      </description>
-    </entry>
-
-    <entry id="misc" dataType="xsd:string" unitType="unitType:unknown"  term="miscellaneous markup">
-      <definition>
-        <h:p>miscellaneous</h:p>
-      </definition>
-      <description>
-        <h:p>TODO MOVE</h:p>
-      </description>
-    </entry>
-    
     <entry id="parameter" dataType="xsd:string" unitType="unitType:unknown"  term="parameter">
       <definition>
         <h:p>parameter</h:p>
       </definition>
       <description>
-        <h:p>TODO MOVE</h:p>
+        <h:p>TODO</h:p>
       </description>
     </entry>
     
@@ -412,81 +383,46 @@ task scf</h:pre></h:code>
         <h:p>property</h:p>
       </definition>
       <description>
-        <h:p>TODO MOVE</h:p>
-      </description>
-    </entry>
-
-    <entry id="row.x" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
         <h:p>TODO</h:p>
       </description>
     </entry>
 
-    <entry id="row.y" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
+<!--  Timing Data -->
+    <entry id="cputime"  term="CPU time" 
+           dataType="xsd:string" unitType="unitType:time" >
       <definition>
-        <h:p>TODO</h:p>
+        <h:p>Elapsed CPU time.</h:p>
       </definition>
+      <dc:source>Wikipedia</dc:source>
       <description>
-        <h:p>TODO</h:p>
+        <h:p>CPU time (or CPU usage, process time) is the amount of time for which a central processing unit (CPU) 
+        was used for processing instructions of a computer program, as opposed to, for example, waiting for 
+        input/output (I/O) operations.</h:p>
+        <h:a href="http://en.wikipedia.org/wiki/CPU_time">wikipedia entry.</h:a>
+      </description>
+    </entry>
+    
+
+    <entry id="walltime" term="Wallclock time" 
+           dataType="xsd:string" unitType="unitType:time">
+      <definition>
+        <h:p>Elapsed wallclock time.</h:p>
+      </definition>
+      <dc:source>Wikipedia</dc:source>
+      <description>
+        <h:p>Wall-clock time is a measure of the real time that elapses from start to end, including 
+        time that passes due to programmed (artificial) delays or waiting for resources to become available.
+         In other words, it is the difference between the time at which a task finishes and the time at which 
+         the task started as would be measured by a clock, such as one on the wall.</h:p>
+        <h:a href="http://en.wikipedia.org/wiki/Wall_clock_time">wikipedia entry.</h:a>
       </description>
     </entry>
 
-    <entry id="row.z" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="serial" dataType="xsd:string" unitType="unitType:unknown"  term="Serial">
-      <definition>
-        <h:p>A serial number</h:p>
-      </definition>
-      <description>
-        <h:p>a serial number from 1...n</h:p>
-        <h:p class="example">TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="startid" dataType="xsd:string" unitType="unitType:unknown"  term="startid">
-      <definition>
-        <h:p>???</h:p>
-      </definition>
-      <description>
-        <h:p>???</h:p>
-      </description>
-    </entry>
-
-    <entry id="tensorname" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
 
 <!--Static properties-->
 
-    <entry id="atnum" unitType="unitType:unknown"  term="TODO atnum" dataType="xsd:integer">
-      <definition>
-        <h:p>serial number of atom</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
 
-    <entry id="atomicmass" dataType="xsd:string" unitType="unitType:unknown"  term="atomic mass">
+    <entry id="atomic_mass" dataType="xsd:string" unitType="unitType:unknown"  term="atomic mass">
       <definition>
         <h:p>Atomic mass</h:p>
       </definition>
@@ -495,17 +431,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="atomicNumber" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="atommass" unitType="unitType:unknown"  term="Mass of the atom" dataType="xsd:double">
+    <entry id="atom_mass" unitType="unitType:unknown"  term="Mass of the atom" dataType="xsd:double">
       <definition>
         <h:p>Mass of the atom</h:p>
       </definition>
@@ -516,7 +442,7 @@ task scf</h:pre></h:code>
     </entry>
     
 
-    <entry id="atomtype" dataType="xsd:string" unitType="unitType:unknown"  term="atom type">
+    <entry id="atom_type" dataType="xsd:string" unitType="unitType:unknown"  term="atom type">
       <definition>
         <h:p>CML atomType element</h:p>
       </definition>
@@ -534,7 +460,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="atomsym" unitType="unitType:unknown"  term="Atom symbol" dataType="cml:elementType">
+    <entry id="atom_sym" unitType="unitType:unknown"  term="Atom symbol" dataType="cml:elementType">
       <definition>
         <h:p>Symbol of the atom</h:p>
       </definition>
@@ -543,7 +469,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-    <entry id="atomType" dataType="xsd:string" unitType="unitType:unknown"  term="atom type">
+    <entry id="atom_Type" dataType="xsd:string" unitType="unitType:unknown"  term="atom type">
       <definition>
         <h:p>an atom type</h:p>
       </definition>
@@ -616,7 +542,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="centerofmass" dataType="xsd:string" unitType="unitType:unknown"  term="center of mass">
+    <entry id="center_of_mass" dataType="xsd:string" unitType="unitType:unknown"  term="center of mass">
       <definition>
         <h:p>center of mass</h:p>
       </definition>
@@ -633,17 +559,6 @@ task scf</h:pre></h:code>
       </definition>
       <description>
         <h:p>TODO</h:p>
-        <h:a href="&jumboNwchem;/log/templates/dftgradient.xml">jumbo template nwchem</h:a>
-        <h:a href="&jumboNwchem;/log/templates/scf.temp.xml">jumbo template nwchem</h:a>
-      </description>
-    </entry>
-
-    <entry id="elemname" unitType="unitType:unknown"  term="TODO elemname" dataType="cml:elementType">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
       </description>
     </entry>
 
@@ -654,15 +569,6 @@ task scf</h:pre></h:code>
       <description>
         <h:p>the atomic symbol as in CML:@elementTypeS</h:p>
         <h:p class="example">TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="elsym" unitType="unitType:unknown"  term="TODO elsym" dataType="cml:elementType">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
       </description>
     </entry>
 
@@ -704,33 +610,6 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="lattice.recip.units" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-  <entry id="mass" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="molmass" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
 
     <entry id="natoms" dataType="xsd:string" unitType="unitType:unknown"  term="atom count">
       <definition>
@@ -742,9 +621,13 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-<entry id="nuclear_dipole_moment" term="nuclear dipole moment" 
-       unitType="unitType:electric_dipole_moment" dataType="xsd:double" >
-<!--  <entry id="nuclear_electric_dipole_moment" term="nuclear electric dipole moment"> -->
+<entry id="nuclear_dipole_moment" term="nuclear dipole moment">
+
+<!--  
+    <parameter>
+    <vector3 unitType="unitType:electric_dipole_moment" dataType="xsd:double">0.0 0.0 0.0</vector3>
+    </parameter>
+ -->
       <definition>
         <h:p>The nuclear electric dipole moment</h:p>
       </definition>
@@ -755,82 +638,12 @@ task scf</h:pre></h:code>
       -->
       <description>
         <h:p>The electric dipole moment arising from the nuclear charges.</h:p>
-        <h:a href="&jumboNwchem;/log/templates/nucdipole.xml">jumbo template</h:a>
       </description>
 </entry>
 
-<entry id="nuclear_repulsion_energy" term="Nuclear repulsion energy" 
-       units="nonSi:hartree" unitType="unitType:energy" dataType="xsd:double">
-    <definition>
-        <h:p>The potential energy arising from Coulombic nuclei-nuclei repulsions.</h:p>
-        <h:p>
-        <m:math>
-            <m:mrow>
-
-                <m:msub>
-                    <m:mover>
-                        <m:mi>T</m:mi>
-                        <!-- <m:mo>&Hat;-->
-                                <m:mo>&#94;
-                                </m:mo>
-                            </m:mover>
-                            <m:mi>n</m:mi>
-                        </m:msub>
-
-                        <m:mo>=</m:mo>
-
-                        <m:mo>-</m:mo>
-                        <m:munder>
-<!--                            <m:mo>&Sum;-->
-                            <m:mo>&#8721;
-                            </m:mo>
-                            <m:mi>i</m:mi>
-                        </m:munder>
-
-                        <m:mfrac>
-                            <m:mrow>
-                                <m:msup>
-<!--                                    <m:mo>&hbar; -->
-                                    <m:mo>&#8463;
-                                    </m:mo>
-                                    <m:mn>2</m:mn>
-                                </m:msup>
-                            </m:mrow>
-
-                            <m:mrow>
-                                <m:mn>2</m:mn>
-                                <m:msub>
-                                    <m:mi>M</m:mi>
-                                    <m:mi>i</m:mi>
-                                </m:msub>
-                            </m:mrow>
-                        </m:mfrac>
-
-                        <m:msubsup>
-<!--                            <m:mi>&nabla;-->
-                    <m:mi>&#8711;
-                    </m:mi>
-                    <m:msub>
-                        <m:mi>R</m:mi>
-                        <m:mi>i</m:mi>
-                    </m:msub>
-                    <m:mn>2</m:mn>
-                </m:msubsup>
-
-            </m:mrow>
-        </m:math>
-        </h:p>
-    </definition>
-    <description>
-        <h:p>The nuclear repulsion energy is the sum of the repulsive Coulombic 
-        interaction energies between the positively charged nuclei.</h:p>
-        <h:a href="&jumboNwchem;/log/templates/effnucrep.xml">jumbo template</h:a>
-    </description>
-</entry>
-
-    <entry id="pointgroup" term="molecular point group" dataType="xsd:string" unitType="unitType:none" units="si:none">
+    <entry id="pointgroup" term="molecular point group" 
+        dataType="xsd:string" unitType="unitType:none" units="si:none">
         <dc:source>Wikipedia</dc:source>
-        <dc:creator>Jens Thomas</dc:creator>
       <definition>
         <h:p>The molecular point group in Schoenflies notation.</h:p>
       </definition>
@@ -838,13 +651,13 @@ task scf</h:pre></h:code>
         <h:p>The point group of the molecule defines the symmetry operations under which the molecule
         remains unchanged.</h:p>
         <h:a href="http://en.wikipedia.org/wiki/Molecular_symmetry">wikipedia entry.</h:a>
+        <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/symminfo.xml">Jumbo NWChem template</h:a></h:p>
       </description>
     </entry>
 
-    <entry id="spin_multiplicity" term="spin mulitplicity" dataType="xsd:integer" 
-     unitType="unitType:dimensionless" units="si:none">
+    <entry id="spin_multiplicity" term="spin mulitplicity"  
+     dataType="xsd:integer" unitType="unitType:dimensionless" units="si:none">
      <dc:source>Wikipedia</dc:source>
-     <dc:contributor>Jens Thomas</dc:contributor>
       <definition>
         <h:p>The spin multiplicity is equal to the number of alpha electrons,
          minus beta electrons, plus 1</h:p>
@@ -855,13 +668,28 @@ task scf</h:pre></h:code>
         <h:a href="http://en.wikipedia.org/wiki/Multiplicity_(chemistry)">wikipedia entry.</h:a>
       </description>
     </entry>
+    
+   <entry id="wavefunction_type" term="wavefunction type"  
+     dataType="xsd:string" units="si:none">
+      <definition>
+        <h:p>The type of wavefunction. Acceptable values are:</h:p>
+        <h:ul>
+            <h:li>closed</h:li>
+            <h:li>open</h:li>
+            <h:li>restricted open</h:li>
+       </h:ul>
+      </definition>
+      <description>
+        <h:p>TODO</h:p>
+      </description>
+    </entry>
 
     <entry id="x3" dataType="xsd:string" unitType="unitType:unknown"  term="CML cartesian x">
       <definition>
         <h:p>CML x3 coordinate</h:p>
       </definition>
       <description>
-        <h:p>TODO</h:p>
+        <h:p>The x-component of the Cartesian coordinates (x,y,z) of an entity.</h:p>
       </description>
     </entry>
 
@@ -870,7 +698,7 @@ task scf</h:pre></h:code>
         <h:p>CML y3 coordinate</h:p>
       </definition>
       <description>
-        <h:p>TODO</h:p>
+        <h:p>>The y-component of the Cartesian coordinates (x,y,z) of an entity.</h:p>
       </description>
     </entry>
 
@@ -879,7 +707,7 @@ task scf</h:pre></h:code>
         <h:p>CML z3 coordinate</h:p>
       </definition>
       <description>
-        <h:p>TODO</h:p>
+        <h:p>>The z-component of the Cartesian coordinates (x,y,z) of an entity.</h:p>
       </description>
     </entry>
 
@@ -896,7 +724,7 @@ task scf</h:pre></h:code>
         </definition>
         <description>
             <h:p>The basis set is the set of functions from which the electron orbitals are constructed.
-            more information can be found on 
+            More information can be found on 
             <h:a href="http://en.wikipedia.org/wiki/Basis_set_(chemistry)">wikipedia</h:a> or in Jan Labanowsk's
             <h:a href="http://www.ccl.net/cca/documents/basis-sets/basis.html">CCL article</h:a>.</h:p>
             <h:p>
@@ -960,7 +788,7 @@ task scf</h:pre></h:code>
     &lt;cml:scalar id="basis_set_title" dictRef="compchem:basis_set_title" dataType="xsd:string"&gt;sto-3g&lt;/cml:scalar&gt;
     &lt;cml:scalar id="basis_set_type" dictRef="compchem:basis_set_type" dataType="xsd:string"&gt;orbital&lt;/cml:scalar&gt;
     &lt;cml:scalar id="basis_set_harmonic_type" dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"&gt;cartesian&lt;/cml:scalar&gt;
-    &lt;cml:scalar id="basis_set_contraction_type" dictRef="compchem:basis_set_contraction_type" dataType="xsd:string"&gt;general&lt;/cml:scalar&gt;
+    &lt;cml:scalar id="basis_set_contraction_type" dictRef="compchem:basis_set_contraction_type" dataType="xsd:string"&gt;segmented &lt;/cml:scalar&gt;
     &lt;cml:scalar id="basis_set_description" dictRef="compchem:basis_set_description" dataType="xsd:string"&gt;ao basis&lt;/cml:scalar&gt;
     &lt;cml:list id="basis_set_contractions" dictRef="compchem:basis_set_contractions"&gt;
       &lt;cml:scalar dataType="xsd:string" dictRef="compchem:atom_type"&gt;O&lt;/cml:scalar&gt;
@@ -1157,137 +985,56 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-
-<!-- These are now redundant
-    <entry id="basis.coefficient" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-    
-    <entry id="basis.exponent" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="basis.shellnum" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="bfn" unitType="unitType:unknown"  term="TODO bfn" dataType="xsd:integer">
-      <definition>
-        <h:p>basis function</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-    
--->
-
-    <entry id="cputime" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-    
-    <entry id="deltae" units="si:unknown" term="deltae" dataType="xsd:double"
-      unitType="unitType:energy">
-      <definition>
-        <h:p>change in energy between cycles</h:p>
-      </definition>
-      <description>
-        <h:p>change in energy between cycles</h:p>
-      </description>
-    </entry>
-
-    <entry id="diiserr" unitType="unitType:unknown" term="diiserr"
-        dataType="xsd:double">
+    <entry id="molecular_orbital" term="Molecular Orbital" 
+        dataType="cml:list" unitType="unitType:none" units="si:none">
         <definition>
-            <h:p>error in DIIS</h:p>
+            <h:p>A cml list container for all information related to an Orbital. This is currently being developed
+            so feel free to get involved.</h:p>
         </definition>
         <description>
-            <h:p>error in DIIS</h:p>
+        <h:p>A sketch of the current thinking is below.</h:p>
+        <h:pre>
+&gt;!-- the number of the orbital --&lt;
+&gt;index dataType="xsd:integer"&lt;3&gt;/index&lt;
+
+&gt;!-- Energy/Eigenvalue? --&lt;
+&gt;energy dataType="xsd:double"&lt;-1.341678D+00&gt;/energy&lt;
+
+&gt;!-- the symmetry irrep this orbital belongs to --&lt;
+&gt;symmetry dataType="xsd:string"&lt;a2&gt;/symmetry&lt;
+
+&gt;!-- degeneracy --&lt;
+&gt;degeneracy dataType="xsd:integer"&lt;2&gt;/degeneracy&lt;
+
+&gt;!-- occupancy --&lt;
+&gt;occupancy dataType="xsd:double"&lt;2.0&gt;/occupancy&lt;
+
+&gt;eigenVectors&lt;
+&gt;!-- List of eigenVectors with links to the basis functions --&lt;
+&gt;/eigenVectors&lt;
+</h:pre>
+     </description>
+     </entry>
+
+  <!-- DFT Terms -->
+
+    <entry id="dft_functional" term="DFT Functional" 
+        dataType="cml:list" unitType="unitType:none" units="si:none">
+        <definition>
+            <h:p>A cml list container for all information related to a DFT Functional.</h:p>
+        </definition>
+        <description>
+        <h:p>A container for a DFT Functional. Currently the only attribute that is used is the 
+        <h:a href="#dft_functional_title">dft_functional_title </h:a>.</h:p>
+        <h:p>In the tradition of wikipedia, this is a stub and needs someone who knows about DFT to
+        expand it.</h:p>
         </description>
-    </entry>
+        </entry>
 
-    <entry id="homo" unitType="unitType:unknown"  term="HOMO" dataType="xsd:double">
+    <entry id="dft_functional_title" term="DFT Functional title" 
+      dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
-        <h:p>Highest Occupied Molecular Orbital</h:p>
-      </definition>
-      <description>
-        <h:p>TODO MOVE</h:p>
-      </description>
-    </entry>
-    
-    <entry id="lumo" unitType="unitType:unknown"  term="LUMO" dataType="xsd:double">
-      <definition>
-        <h:p>Lowest Occupied Moecular Orbital</h:p>
-      </definition>
-      <description>
-        <h:p>TODO MOVE</h:p>
-      </description>
-    </entry>
-
-    <entry id="iter" unitType="unitType:unknown"  term="serial number of iteration" dataType="xsd:integer">
-      <definition>
-        <h:p>serial number of iteration</h:p>
-      </definition>
-      <description>
-        <h:p>serial number of iteration TODO MOVE</h:p>
-      </description>
-    </entry>
-    
-
-    <entry id="rmsdens" unitType="unitType:unknown"  term="RMS electron density" dataType="xsd:double">
-      <definition>
-        <h:p>rms density</h:p>
-      </definition>
-      <description>
-        <h:p>RMS electron density</h:p>
-      </description>
-    </entry>
-    
-    <entry id="shellsym" term="TODO" dataType="xsd:string" units="si:none"
-      unitType="unitType:none">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="time" term="cumulative time" unitType="unitType:unknown" dataType="xsd:double">
-      <definition>
-        <h:p>cumulative time</h:p>
-      </definition>
-      <description>
-        <h:p>TODO MOVE</h:p>
-      </description>
-    </entry>
-    
-    <entry id="walltime" term="TODO" dataType="xsd:string" unitType="unitType:unknown">
-      <definition>
-        <h:p>TODO</h:p>
+        <h:p>The name of the DFT functional used, if a standard functional was used.</h:p>
       </definition>
       <description>
         <h:p>TODO</h:p>
@@ -1296,110 +1043,151 @@ task scf</h:pre></h:code>
 
 <!--Calculated Energies-->
 
-    <entry id="coulomb" term="Coulomb energy" unitType="unitType:unknown"  dataType="xsd:double">
+    <entry id="coulomb_energy" term="Coulomb energy" 
+     unitType="unitType:energy"  dataType="xsd:double">
       <definition>
-        <h:p>Coulomb energy</h:p>
+        <h:p>The Coulomb compoment of the electronic energy in a Density Functional Calculation.</h:p>
       </definition>
       <description>
         <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="ener1e" term="1-electron energy" unitType="unitType:unknown" dataType="xsd:double">
-      <definition>
-        <h:p>1-electron energy</h:p>
-      </definition>
-      <description>
-        <h:p>1-electron energy</h:p>
       </description>
     </entry>
     
-    <entry id="ener2e" term="TODO ener2e" unitType="unitType:unknown"  dataType="xsd:double">
+    <entry id="correlation_energy" term="Correlation energy" 
+     unitType="unitType:energy"  dataType="xsd:double">
       <definition>
-        <h:p>TODO</h:p>
+        <h:p>The Correlation Energy.</h:p>
       </definition>
       <description>
         <h:p>TODO</h:p>
       </description>
     </entry>
 
-    <entry id="energy" units="si:unknown" term="energy" dataType="xsd:double" unitType="unitType:energy">
+    <entry id="e1_energy" term="1-electron energy" 
+    unitType="unitType:energy" dataType="xsd:double">
       <definition>
-        <h:p>energy</h:p>
+        <h:p>The one-electron energy.</h:p>
       </definition>
       <description>
-        <h:p>energy of unspecified typeTODO MOVE</h:p>
+        <h:p>The one-electron kinetic energy compment of the Hamiltonian operator for a system 
+        of electrons and nuclei.</h:p>
       </description>
     </entry>
-   
-    <entry id="echangecorr" unitType="unitType:unknown"  term="Exchange correlation energy"
-      dataType="xsd:double">
+    
+    <entry id="e2_energy" term="2-electron energy" 
+    unitType="unitType:energy" dataType="xsd:double">
       <definition>
-        <h:p>Exchange correlation energy</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="oneelecener" unitType="unitType:unknown"  term="1-electron energy" dataType="xsd:double">
-      <definition>
-        <h:p>1-electron energy</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-    <entry id="oneeener" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
-      <definition>
-        <h:p>TODO</h:p>
-      </definition>
-      <description>
-        <h:p>TODO</h:p>
-      </description>
-    </entry>
-
-   <entry id="sumatomener" term="Sum of atom energies"
-           dataType="xsd:double" unitType="unitType:energy" units="nonSi:hartree">
-      <definition>
-        <h:p>The sum of the atomic energies.</h:p>
+        <h:p>The two-electron energy.</h:p>
       </definition>
       <description>
         <h:p>TODO.</h:p>
       </description>
     </entry>
     
-    <entry id="totalener" dataType="xsd:string" unitType="unitType:unknown"  term="total energy">
+    <entry id="nuclear_repulsion_energy" term="Nuclear repulsion energy" 
+       units="nonSi:hartree" unitType="unitType:energy" dataType="xsd:double">
+    <definition>
+        <h:p>The potential energy arising from Coulombic nuclei-nuclei repulsions.</h:p>
+        <h:p>
+        <m:math>
+            <m:mrow>
+
+                <m:msub>
+                    <m:mover>
+                        <m:mi>T</m:mi>
+                        <!-- <m:mo>&Hat;-->
+                                <m:mo>&#94;
+                                </m:mo>
+                            </m:mover>
+                            <m:mi>n</m:mi>
+                        </m:msub>
+
+                        <m:mo>=</m:mo>
+
+                        <m:mo>-</m:mo>
+                        <m:munder>
+<!--                            <m:mo>&Sum;-->
+                            <m:mo>&#8721;
+                            </m:mo>
+                            <m:mi>i</m:mi>
+                        </m:munder>
+
+                        <m:mfrac>
+                            <m:mrow>
+                                <m:msup>
+<!--                                    <m:mo>&hbar; -->
+                                    <m:mo>&#8463;
+                                    </m:mo>
+                                    <m:mn>2</m:mn>
+                                </m:msup>
+                            </m:mrow>
+
+                            <m:mrow>
+                                <m:mn>2</m:mn>
+                                <m:msub>
+                                    <m:mi>M</m:mi>
+                                    <m:mi>i</m:mi>
+                                </m:msub>
+                            </m:mrow>
+                        </m:mfrac>
+
+                        <m:msubsup>
+<!--                            <m:mi>&nabla;-->
+                    <m:mi>&#8711;
+                    </m:mi>
+                    <m:msub>
+                        <m:mi>R</m:mi>
+                        <m:mi>i</m:mi>
+                    </m:msub>
+                    <m:mn>2</m:mn>
+                </m:msubsup>
+
+            </m:mrow>
+        </m:math>
+        </h:p>
+    </definition>
+    <description>
+        <h:p>The nuclear repulsion energy is the sum of the repulsive Coulombic 
+        interaction energies between the positively charged nuclei.</h:p>
+    </description>
+</entry>
+    
+    <entry id="scf_energy"  term="energy"
+           dataType="xsd:double" unitType="unitType:energy">
       <definition>
-        <h:p>The total energy</h:p>
+        <h:p>The Hartree-Fock Self-Consistent Field component of the energy.</h:p>
       </definition>
       <description>
-        <h:p>This may be a code-specific term so may be overridden by code-specific dictionaries</h:p>
+        <h:p>This is the SCF energy, where the SCF energy is a compment of another energy, such as the
+        MP2 energy. The scf_energy term should NOT be used for the total energy of an SCF calculation, for this
+        the <h:a href="#total_energy">total energy</h:a> term should be used, as the exact meaning of the SCF
+        energy will be properly determined by the parameters in the <h:a href="#initialization">initialization</h:a> 
+        module.</h:p>
+      </description>
+    </entry>
+    
+    
+   <entry id="total_energy" term="total energy" 
+    dataType="xsd:string" unitType="unitType:energy">
+      <definition>
+        <h:p>The total energy for a system of electrons and nuclei.</h:p>
+      </definition>
+      <description>
+        <h:p>The total energy is formed from the sum of the nuclear, one- and two-electron energies for
+        a system of electrons and nuclei.</h:p>
+        <h:p>The meaning of any energy is dependent on the context in which it is found. An energy will usually be 
+        located in the <h:a href="#finalization">finalization</h:a> module of a <h:a href="#calculation">calculation</h:a>,
+        and it is the parameters in the calculation's <h:a href="#initialization">initialization</h:a> module that will
+        define the type of energy. So if the <h:a href="#calculation_method">calculation_method</h:a> parameter is MP2, 
+        then this will be an MP2 energy.</h:p>
       </description>
     </entry>
 
-    <entry id="totaldft" unitType="unitType:unknown"  term="Total DFT energy" dataType="xsd:double">
+   
+    <entry id="xc_energy"   term="Exchange correlation energy"
+      dataType="xsd:double" unitType="unitType:energy">
       <definition>
-        <h:p>Total DFT energy</h:p>
-      </definition>
-      <description>
-        <h:p>TODO MOVE</h:p>
-      </description>
-    </entry>
-
-    <entry id="totener" unitType="unitType:unknown"  term="Total energy" dataType="xsd:double">
-      <definition>
-        <h:p>Total energy</h:p>
-      </definition>
-      <description>
-        <h:p>TODO MOVE</h:p>
-      </description>
-    </entry>
-
-    <entry id="twoeener" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
-      <definition>
-        <h:p>TODO</h:p>
+        <h:p>The Exchange correlation energy.</h:p>
       </definition>
       <description>
         <h:p>TODO</h:p>
