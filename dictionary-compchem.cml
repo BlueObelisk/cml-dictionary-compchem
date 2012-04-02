@@ -156,8 +156,8 @@
 
     <!--Environment terms-->
 
-    <entry id="compile_date" dataType="xsd:string" unitType="unitType:unknown"
-        term="compilation date">
+    <entry id="compile_date" term="compilation date"
+        dataType="xsd:string" unitType="unitType:unknown">
         <definition>
             <h:p>The date that the executable was compiled.</h:p>
         </definition>
@@ -308,7 +308,7 @@ task scf</h:pre></h:code>
 <!--Miscellaneous -->
 
 
-    <entry id="method" term="Method"
+    <entry id="method" term="method"
            dataType="xsd:string" unitType="unitType:unknown" >
       <definition>
         <h:p>The type of computational method that is being used in the calculation. Example values are:</h:p>
@@ -328,7 +328,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="task" term="Task"
+    <entry id="task" term="task"
            dataType="xsd:string" unitType="unitType:unknown" >
       <definition>
         <h:p>The task that is being carried out by the job or calculation. Acceptable values are:</h:p>
@@ -403,7 +403,7 @@ task scf</h:pre></h:code>
     </entry>
     
 
-    <entry id="walltime" term="Wallclock time" 
+    <entry id="walltime" term="wallclock time" 
            dataType="xsd:string" unitType="unitType:time">
       <definition>
         <h:p>Elapsed wallclock time.</h:p>
@@ -431,7 +431,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="atom_mass" unitType="unitType:unknown"  term="Mass of the atom" dataType="xsd:double">
+    <entry id="atom_mass" unitType="unitType:unknown"  term="mass of the atom" dataType="xsd:double">
       <definition>
         <h:p>Mass of the atom</h:p>
       </definition>
@@ -479,7 +479,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="cell.a" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.a" dataType="xsd:string" unitType="unitType:unknown"  term="cell.a">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -488,7 +488,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="cell.b" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.b" dataType="xsd:string" unitType="unitType:unknown"  term="cell.b">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -497,7 +497,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="cell.c" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.c" dataType="xsd:string" unitType="unitType:unknown"  term="cell.c">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -506,7 +506,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="cell.alpha" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.alpha" dataType="xsd:string" unitType="unitType:unknown"  term="cell.alpha">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -515,7 +515,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="cell.beta" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.beta" dataType="xsd:string" unitType="unitType:unknown"  term="cell.beta">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -524,7 +524,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="cell.gamma" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.gamma" dataType="xsd:string" unitType="unitType:unknown"  term="cell.gamma">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -533,7 +533,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="cell.omega" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="cell.omega" dataType="xsd:string" unitType="unitType:unknown"  term="cell.omega">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -572,7 +572,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-   <entry id="groupnumber" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+   <entry id="groupnumber" dataType="xsd:string" unitType="unitType:unknown"  term="group number">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -581,7 +581,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-  <entry id="groupname" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+  <entry id="groupname" dataType="xsd:string" unitType="unitType:unknown"  term="group name">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -590,7 +590,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="grouporder" dataType="xsd:string" unitType="unitType:unknown"  term="TODO">
+    <entry id="grouporder" dataType="xsd:string" unitType="unitType:unknown"  term="group order">
       <definition>
         <h:p>TODO</h:p>
       </definition>
@@ -600,7 +600,7 @@ task scf</h:pre></h:code>
     </entry>
 
 
-    <entry id="irrep" dataType="xsd:string" unitType="unitType:unknown"  term="Irreducible representation">
+    <entry id="irrep" dataType="xsd:string" unitType="unitType:unknown"  term="irreducible representation">
       <definition>
         <h:p>Irreducible representation</h:p>
       </definition>
@@ -716,7 +716,7 @@ task scf</h:pre></h:code>
 
 <!-- Basis set properties -->
 
-    <entry id="basis" term="basis set name" 
+    <entry id="basis_set" term="basis set" 
         dataType="cml:list" unitType="unitType:none" units="si:none">
         <definition>
             <h:p>A cml list container for all information related to the basis set.
@@ -845,7 +845,7 @@ task scf</h:pre></h:code>
     </entry>
  
  
-     <entry id="basis_set_type" term="Basis set type" 
+     <entry id="basis_set_type" term="basis set type" 
       dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>The type of the basis set.</h:p>
@@ -868,7 +868,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-     <entry id="basis_set_harmonic_type" term="Basis set type" 
+     <entry id="basis_set_harmonic_type" term="basis set type" 
       dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>The type of the angular functions used in basis set.</h:p>
@@ -889,7 +889,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-    <entry id="basis_set_contraction_type" term="Basis set contraction type" 
+    <entry id="basis_set_contraction_type" term="basis set contraction type" 
     dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>The contraction type of the basis set.</h:p>
@@ -908,7 +908,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-   <entry id="basis_set_description" term="Basis set description" 
+   <entry id="basis_set_description" term="basis set description" 
     dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>A description of the basis set.</h:p>
@@ -918,7 +918,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-   <entry id="basis_set_contractions" term="Basis set contractions" 
+   <entry id="basis_set_contractions" term="basis set contractions" 
     dataType="cml:list" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>The cml:list container for the contractions relating to a particular atom type.</h:p>
@@ -931,7 +931,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-    <entry id="basis_set_shell" term="Basis set shell" 
+    <entry id="basis_set_shell" term="basis set shell" 
     dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>The label for the contraction shell.</h:p>
@@ -954,7 +954,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-   <entry id="basis_set_contraction" term="Basis set contraction" 
+   <entry id="basis_set_contraction" term="basis set contraction" 
     dataType="cml:list" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>The cml:list container for an individual contraction.</h:p>
@@ -965,7 +965,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-   <entry id="basis_set_exponent" term="Basis set exponent" 
+   <entry id="basis_set_exponent" term="basis set exponent" 
     dataType="cml:array" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>A cml:array holding the list of exponents for an individual contraction.</h:p>
@@ -975,7 +975,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-  <entry id="basis_set_coefficient" term="Basis set coefficient "
+  <entry id="basis_set_coefficient" term="basis set coefficient "
     dataType="cml:array" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>A cml:array holding the list of coefficients for an individual contraction.</h:p>
@@ -985,7 +985,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="molecular_orbital" term="Molecular Orbital" 
+    <entry id="molecular_orbital" term="molecular orbital" 
         dataType="cml:list" unitType="unitType:none" units="si:none">
         <definition>
             <h:p>A cml list container for all information related to an Orbital. This is currently being developed
@@ -994,24 +994,24 @@ task scf</h:pre></h:code>
         <description>
         <h:p>A sketch of the current thinking is below.</h:p>
         <h:pre>
-&gt;!-- the number of the orbital --&lt;
-&gt;index dataType="xsd:integer"&lt;3&gt;/index&lt;
+&lt;!-- the number of the orbital --&gt;
+&lt;index dataType="xsd:integer"&gt;3&lt;/index&gt;
 
-&gt;!-- Energy/Eigenvalue? --&lt;
-&gt;energy dataType="xsd:double"&lt;-1.341678D+00&gt;/energy&lt;
+&lt;!-- Energy/Eigenvalue? --&gt;
+&lt;energy dataType="xsd:double"&gt;-1.341678D+00&lt;/energy&gt;
 
-&gt;!-- the symmetry irrep this orbital belongs to --&lt;
-&gt;symmetry dataType="xsd:string"&lt;a2&gt;/symmetry&lt;
+&lt;!-- the symmetry irrep this orbital belongs to --&gt;
+&lt;symmetry dataType="xsd:string"&gt;a2&lt;/symmetry&gt;
 
-&gt;!-- degeneracy --&lt;
-&gt;degeneracy dataType="xsd:integer"&lt;2&gt;/degeneracy&lt;
+&lt;!-- degeneracy --&gt;
+&lt;degeneracy dataType="xsd:integer"&gt;2&lt;/degeneracy&gt;
 
-&gt;!-- occupancy --&lt;
-&gt;occupancy dataType="xsd:double"&lt;2.0&gt;/occupancy&lt;
+&lt;!-- occupancy --&gt;
+&lt;occupancy dataType="xsd:double"&gt;2.0&lt;/occupancy&gt;
 
-&gt;eigenVectors&lt;
-&gt;!-- List of eigenVectors with links to the basis functions --&lt;
-&gt;/eigenVectors&lt;
+&lt;eigenVectors&gt;
+&lt;!-- List of eigenVectors with links to the basis functions --&gt;
+&lt;/eigenVectors&gt;
 </h:pre>
      </description>
      </entry>
@@ -1043,7 +1043,7 @@ task scf</h:pre></h:code>
 
 <!--Calculated Energies-->
 
-    <entry id="coulomb_energy" term="Coulomb energy" 
+    <entry id="coulomb_energy" term="coulomb energy" 
      unitType="unitType:energy"  dataType="xsd:double">
       <definition>
         <h:p>The Coulomb compoment of the electronic energy in a Density Functional Calculation.</h:p>
@@ -1053,7 +1053,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-    <entry id="correlation_energy" term="Correlation energy" 
+    <entry id="correlation_energy" term="correlation energy" 
      unitType="unitType:energy"  dataType="xsd:double">
       <definition>
         <h:p>The Correlation Energy.</h:p>
@@ -1084,7 +1084,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-    <entry id="nuclear_repulsion_energy" term="Nuclear repulsion energy" 
+    <entry id="nuclear_repulsion_energy" term="nuclear repulsion energy" 
        units="nonSi:hartree" unitType="unitType:energy" dataType="xsd:double">
     <definition>
         <h:p>The potential energy arising from Coulombic nuclei-nuclei repulsions.</h:p>
@@ -1184,7 +1184,7 @@ task scf</h:pre></h:code>
     </entry>
 
    
-    <entry id="xc_energy"   term="Exchange correlation energy"
+    <entry id="xc_energy"   term="exchange correlation energy"
       dataType="xsd:double" unitType="unitType:energy">
       <definition>
         <h:p>The Exchange correlation energy.</h:p>
