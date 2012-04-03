@@ -725,7 +725,7 @@ task scf</h:pre></h:code>
         <h:p>CML y3 coordinate</h:p>
       </definition>
       <description>
-        <h:p>>The y-component of the Cartesian coordinates (x,y,z) of an entity.</h:p>
+        <h:p>The y-component of the Cartesian coordinates (x,y,z) of an entity.</h:p>
       </description>
     </entry>
 
@@ -734,7 +734,7 @@ task scf</h:pre></h:code>
         <h:p>CML z3 coordinate</h:p>
       </definition>
       <description>
-        <h:p>>The z-component of the Cartesian coordinates (x,y,z) of an entity.</h:p>
+        <h:p>The z-component of the Cartesian coordinates (x,y,z) of an entity.</h:p>
       </description>
     </entry>
 
