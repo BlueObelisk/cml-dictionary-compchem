@@ -209,7 +209,7 @@
         <h:p>The input directives that were used to run the job.</h:p>
       </definition>
       <description>
-        <h:p>>Where, available, this is input directives used to run the job and
+        <h:p>Where, available, this is input directives used to run the job and
         which could be used to recreate the job.</h:p>
         <h:p class="example">For a simple NWChem scf calculation on water, the input would be:</h:p>
         <h:code><h:pre>echo
@@ -441,7 +441,8 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="atomtypeRef" dataType="xsd:string" unitType="unitType:unknown"  term="reference to atom type">
+    <entry id="atomtypeRef" term="reference to atom type"
+            dataType="xsd:string" unitType="unitType:unknown"  >
       <definition>
         <h:p>Reference to CML atomType element</h:p>
       </definition>
@@ -450,7 +451,8 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="atom_sym" unitType="unitType:unknown"  term="Atom symbol" dataType="cml:elementType">
+    <entry id="atom_sym" term="atom symbol"
+           dataType="cml:elementType" unitType="unitType:unknown"  >
       <definition>
         <h:p>Symbol of the atom</h:p>
       </definition>
@@ -764,8 +766,8 @@ task scf</h:pre></h:code>
                 two efforts aligned as far as possible. </h:p>
            <h:p>Within the context of conventions and dictionaries as detailed in the
           <h:a href="http://dx.doi.org/10.1186/1758-2946-3-44">CML: Evolution and Design</h:a>
-                paper, we are using existing CML datatypes and this to hold all complex
-                data structures, with dictionary entries describing the element. Rather then using
+                paper, we are using existing CML datatypes to hold all complex
+                data structures, with dictionary entries describing the elements. Rather then using
                 matricies to hold the exponents and coefficients, arrays will be used.
                 Attributes (e.g. elementType on contractions) will be moved into separate elements,
                 with the convention used to enforce their appearance. This also means that the attributes 
@@ -852,7 +854,7 @@ task scf</h:pre></h:code>
 
 
     
-    <entry id="basis_set_title" term="Basis set title" 
+    <entry id="basis_set_title" term="basis set title" 
       dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>The name of the basis set if the same basis set was used throughout the calculation. If
@@ -1043,7 +1045,7 @@ task scf</h:pre></h:code>
 
   <!-- DFT Terms -->
 
-    <entry id="dft_functional" term="DFT Functional" 
+    <entry id="dft_functional" term="DFT functional" 
         dataType="cml:list" unitType="unitType:none" units="si:none">
         <definition>
             <h:p>A cml list container for all information related to a DFT Functional.</h:p>
@@ -1056,7 +1058,7 @@ task scf</h:pre></h:code>
         </description>
         </entry>
 
-    <entry id="dft_functional_title" term="DFT Functional title" 
+    <entry id="dft_functional_title" term="DFT functional title" 
       dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>The name of the DFT functional used, if a standard functional was used.</h:p>
@@ -1203,8 +1205,9 @@ task scf</h:pre></h:code>
         <h:p>The meaning of any energy is dependent on the context in which it is found. An energy will usually be 
         located in the <h:a href="#finalization">finalization</h:a> module of a <h:a href="#calculation">calculation</h:a>,
         and it is the parameters in the calculation's <h:a href="#initialization">initialization</h:a> module that will
-        define the type of energy. So if the <h:a href="#calculation_method">calculation_method</h:a> parameter is MP2, 
-        then this will be an MP2 energy.</h:p>
+        define the type of energy. So if the calculation's <h:a href="#method">method</h:a> parameter is MP2, 
+        then this will be an MP2 energy, with the exact definition determined by the associated SCF and MP2 parameters
+        in the SCF and MP2 initialization modules.</h:p>
       </description>
     </entry>
 
