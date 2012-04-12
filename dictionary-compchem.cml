@@ -168,7 +168,7 @@
         </description>
     </entry>
 
-    <entry id="date" dataType="xsd:string" unitType="unitType:unknown"
+    <entry id="runDate" dataType="xsd:string" unitType="unitType:unknown"
         term="date">
         <definition>
             <h:p>The date that the job commenced.</h:p>
@@ -192,7 +192,7 @@
         </description>
     </entry>
 
-    <entry id="hostname" dataType="xsd:string" unitType="unitType:none" units="si:none"
+    <entry id="hostName" dataType="xsd:string" unitType="unitType:none" units="si:none"
         term="host name">
         <definition>
             <h:p>The name of the host that the program was run on.</h:p>
@@ -233,7 +233,7 @@ task scf</h:pre></h:code>
     </entry>
 
 
-    <entry id="nproc" dataType="xsd:string" unitType="unitType:dimensionless" units="si:none"
+    <entry id="numProcs" dataType="xsd:string" unitType="unitType:dimensionless" units="si:none"
         term="number of processors">
         <definition>
             <h:p>The number of processors used to run the job.</h:p>
@@ -275,19 +275,6 @@ task scf</h:pre></h:code>
 
             </h:table>
             <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/nccp.xml">Jumbo NWChem template</h:a></h:p>
-        </description>
-    </entry>
-
-    <entry id="title" unitType="unitType:none" units="si:none" term="title"
-        dataType="xsd:string">
-        <definition>
-            <h:p>An arbitrary title.</h:p>
-        </definition>
-        <description>
-            <h:p>A title is not used for reference, though could be used
-                for lexical indexing (e.g. by Solr). It often contains important metadata
-                that is not otherwise available in the output.
-            </h:p>
         </description>
     </entry>
 
@@ -359,7 +346,7 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
-    <entry id="iteration_index" term="serial number of iteration" 
+    <entry id="iterationIndex" term="serial number of iteration" 
            unitType="unitType:unknown" dataType="xsd:integer">
       <definition>
         <h:p>The serial number of an iteration.</h:p>
@@ -385,6 +372,19 @@ task scf</h:pre></h:code>
       <description>
         <h:p>TODO</h:p>
       </description>
+    </entry>
+    
+    <entry id="title" unitType="unitType:none" units="si:none" term="title"
+        dataType="xsd:string">
+        <definition>
+            <h:p>An arbitrary title.</h:p>
+        </definition>
+        <description>
+            <h:p>A title is not used for reference, though could be used
+                for lexical indexing (e.g. by Solr). It often contains important metadata
+                that is not otherwise available in the output.
+            </h:p>
+        </description>
     </entry>
 
 <!--  Timing Data -->
@@ -491,27 +491,21 @@ task scf</h:pre></h:code>
 
 <entry id="nuclearDipoleMoment" term="nuclear dipole moment" >
 
-
-    
-    <scalar dictRef="compchem:nuclear_dipole_moment" 
-    unitType="unitType:electric_dipole_moment" dataType="xsd:double"/>
-    
-    
       <definition>
         <h:p>The nuclear electric dipole moment</h:p>
       </definition>
-      <!-- FIXME _ WORK IN PROGRESS 
-      <description role="cml:template">
-      <cmlx:vector3 units="$u" unitType="unitType:electric_dipole_moment">$f  $f $f</cmlx:vector3>
-      </description>
-      -->
-      <description class="text">
+      
+      <!-- Work in progress...
+      <description class="description">
         <h:p>The electric dipole moment arising from the nuclear charges.</h:p>
       </description>
+      
       <description class="prototype">
-          <vector3 dictRef="compchem:nuclear_dipole_moment" 
-          unitType="unitType:electric_dipole_moment" dataType="xsd:double">0.0 0.0 0.0</vector3>
+          <scalar dictRef="compchem:nuclear_dipole_moment" 
+                  unitType="unitType:electric_dipole_moment" 
+                  dataType="xsd:double"/>
       </description>
+       -->
 </entry>
 
 
@@ -559,6 +553,29 @@ task scf</h:pre></h:code>
       <description>
         <h:p>TODO</h:p>
         <h:p class="example">TODO</h:p>
+      </description>
+    </entry>
+    
+        <entry id="numClosedShells" term="closed shell count"
+           dataType="xsd:integer" unitType="unitType:dimensionless" units="si:none">
+           
+           
+      <definition>
+        <h:p>The number of closed shells</h:p>
+      </definition>
+      <description>
+        <h:p>TODO</h:p>
+      </description>
+    </entry>
+    
+        <entry id="numOpenShells" term="open shell count"
+           dataType="xsd:integer" unitType="unitType:dimensionless" units="si:none">
+           
+      <definition>
+        <h:p>The number of open shells</h:p>
+      </definition>
+      <description>
+        <h:p>TODO</h:p>
       </description>
     </entry>
 
