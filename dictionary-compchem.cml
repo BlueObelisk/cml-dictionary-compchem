@@ -203,35 +203,38 @@
             <h:p><h:a href="https://bitbucket.org/wwmm/jumbo-converters/src/9372621bca82/jumbo-converters-compchem/jumbo-converters-compchem-nwchem/src/main/resources/org/xmlcml/cml/converters/compchem/nwchem/log/templates/job.info.xml">Jumbo NWChem template</h:a></h:p>
         </description>
     </entry>
-
-    <entry id="input" dataType="xsd:string" unitType="unitType:none" units="si:none" term="program input">
-      <definition>
-        <h:p>The input directives that were used to run the job.</h:p>
-      </definition>
-      <description>
-        <h:p>Where, available, this is input directives used to run the job and
-        which could be used to recreate the job.</h:p>
-        <h:p class="example">For a simple NWChem scf calculation on water, the input would be:</h:p>
-        <h:code><h:pre>echo
-start molecule
-
-title "scf calculation on water with 6.31g* basis"
-
-geometry units angstrom
-O      0.00000000     0.00000000     0.11726921
-H      0.75698224     0.00000000    -0.46907685
-H     -0.75698224     0.00000000    -0.46907685
-end
-
-basis
-  O library 6-31g*
-  H library 6-31g*
-end
-
-task scf</h:pre></h:code>
-      </description>
+    
+    <entry id="inputFile" term="Input File"
+        unitType="unitType:none" units="si:none" dataType="cml:module">
+        <definition>
+            <h:p>A cml module for a single literal representation of an input file.</h:p>
+        </definition>
+        <description>
+            <h:p>The module will usually contain a list of scalars that represent the text of
+            the input file.</h:p>
+        </description>
     </entry>
-
+    
+    <entry id="inputFileList" term="Input File List"
+        unitType="unitType:none" units="si:none" dataType="cml:module">
+        <definition>
+            <h:p>A cml module containing a list of input files.</h:p>
+        </definition>
+        <description>
+            <h:p>The cml module that is the outer most container for the 
+            literal representation of one or more input files.</h:p>
+        </description>
+    </entry>
+    
+    <entry id="inputFileName" term="Input File Name"
+        unitType="unitType:none" units="si:none" dataType="xsd:string">
+        <definition>
+            <h:p>A representation of the name of a single input file.</h:p>
+        </definition>
+        <description>
+            <h:p>TODO.</h:p>
+        </description>
+    </entry>
 
     <entry id="numProcs" dataType="xsd:string" unitType="unitType:dimensionless" units="si:none"
         term="number of processors">
@@ -346,6 +349,16 @@ task scf</h:pre></h:code>
       </description>
     </entry>
 
+    <entry id="index" term="index" 
+           unitType="unitType:unknown" dataType="xsd:integer">
+      <definition>
+        <h:p>An index.</h:p>
+      </definition>
+      <description>
+        <h:p>An integer used as an index..</h:p>
+      </description>
+    </entry>
+    
     <entry id="iterationIndex" term="serial number of iteration" 
            unitType="unitType:unknown" dataType="xsd:integer">
       <definition>
@@ -374,8 +387,8 @@ task scf</h:pre></h:code>
       </description>
     </entry>
     
-    <entry id="title" unitType="unitType:none" units="si:none" term="title"
-        dataType="xsd:string">
+    <entry id="title" term="title"
+        unitType="unitType:none" units="si:none" dataType="xsd:string">
         <definition>
             <h:p>An arbitrary title.</h:p>
         </definition>
@@ -384,6 +397,17 @@ task scf</h:pre></h:code>
                 for lexical indexing (e.g. by Solr). It often contains important metadata
                 that is not otherwise available in the output.
             </h:p>
+        </description>
+    </entry>
+    
+    <entry id="uuid" term="UUID"
+        unitType="unitType:none" units="si:none" dataType="xsd:string">
+        <definition>
+            <h:p>A Universally Unique IDentifier.</h:p>
+        </definition>
+        <description>
+            <h:p>A Universally Unique IDentifier as per <h:a href="http://www.ietf.org/rfc/rfc4122">RFC 4122</h:a>.
+            Any of the five versions or the special nil identifier are acceptable.</h:p>
         </description>
     </entry>
 
@@ -403,7 +427,7 @@ task scf</h:pre></h:code>
     </entry>
     
 
-    <entry id="walltime" term="wallclock time" 
+    <entry id="wallTime" term="wallclock time" 
            dataType="xsd:string" unitType="unitType:time">
       <definition>
         <h:p>Elapsed wallclock time.</h:p>
