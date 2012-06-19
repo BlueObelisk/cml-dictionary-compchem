@@ -1074,7 +1074,7 @@
       </description>
     </entry>
     
-   <entry id="basisSetERxponent" term="basis set R exponent" 
+   <entry id="basisSetRExponent" term="basis set R exponent" 
     dataType="cml:array" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>A cml:array holding the list of R exponents for an individual Effective Core Potential (ECP) contraction.</h:p>
