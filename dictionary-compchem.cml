@@ -212,9 +212,10 @@
         <description>
             <h:p>The module will usually contain a list of scalars that represent the text of
             the input file.</h:p>
+            <h:p>See the <h:a href="#inputFileList">inputFileList</h:a> for an example.</h:p>
         </description>
     </entry>
-    
+ 
     <entry id="inputFileList" term="Input File List"
         unitType="unitType:none" units="si:none" dataType="cml:module">
         <definition>
@@ -222,9 +223,69 @@
         </definition>
         <description>
             <h:p>The cml module that is the outer most container for the 
-            literal representation of one or more input files.</h:p>
+            literal representation of one or more input files. An example for the 
+            <h:a href="http://projects.ivec.org/gulp/">Gulp</h:a> code follows below:</h:p>
+            <h:pre>
+&lt;module dictRef="compchem:inputFileList"&gt;
+&lt;module dictRef="compchem:inputFile"&gt;
+  &lt;metadataList&gt;
+    &lt;metadata name="compchem:inputFileName" content="test_cmlDumpDec_4a.in"/&gt;
+  &lt;/metadataList&gt;
+  &lt;scalar dataType="xsd:string"&gt;opti prop conp                                                                  &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;title                                                                           &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;alumina test file                                                               &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;end                                                                             &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;cell                                                                            &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;4.7602   4.7602  12.9933  90.000000  90.000000 120.0                            &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;frac                                                                            &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;Al core 0.000000   0.000000   0.352160                                          &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;Al shel 0.000000   0.000000   0.352160                                          &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O  core 0.306240   0.000000   0.250000                                          &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O  shel 0.306240   0.000000   0.250000                                          &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;space                                                                           &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;167                                                                             &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;species                                                                         &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;Al core  0.043                                                                  &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;Al shel  2.957                                                                  &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O  core  0.513                                                                  &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O  shel -2.513                                                                  &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;buckingham                                                                      &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;Al shel O shel  2409.505 0.2649  0.00 0.0 10.0                                  &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O  shel O shel    25.410 0.6937 32.32 0.0 12.0                                  &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;spring                                                                          &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;Al 403.98                                                                       &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O   20.53                                                                       &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;output xr example1                                                              &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;output marvin example1.mvn                                                      &lt;/scalar&gt;
+&lt;/module&gt;
+&lt;module dictRef="compchem:inputFile"&gt;
+  &lt;metadataList&gt;
+    &lt;metadata name="compchem:inputFileName" content="test_cmlDumpDec_4b.in"/&gt;
+  &lt;/metadataList&gt;
+  &lt;scalar dataType="xsd:string"&gt;fit conp simul opti                                                             &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;cell                                                                            &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;   4.914730   4.914730   5.406570  90.000000  90.000000 120.0                   &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;fractional                                                                      &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;Si core  0.468200   0.000000   0.333333    4.000000                             &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O  core  0.413100   0.266100   0.213100    0.869020                             &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O  shel  0.431813   0.264902   0.204106   -2.869020                             &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;space                                                                           &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;152                                                                             &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;general 0 6 grad                                                                &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;Si core O shel 1283.037674      0.320500     10.660000   0.0  8.0 1 0 0         &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;buck                                                                            &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O shel O shel 22764.0 0.149 27.88  0.0000  8.0000 0 0 0                         &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;spring                                                                          &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;O 74.92 0                                                                       &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;three                                                                           &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;Si core O shel O shel 2.097240   109.470000  1.8000  1.8000  3.2000 0 0         &lt;/scalar&gt;
+  &lt;scalar dataType="xsd:string"&gt;dump example2.res                                                               &lt;/scalar&gt;
+&lt;/module&gt;
+&lt;/module&gt;
+</h:pre>
         </description>
     </entry>
+
     
     <entry id="inputFileName" term="Input File Name"
         unitType="unitType:none" units="si:none" dataType="xsd:string">
@@ -232,7 +293,7 @@
             <h:p>A representation of the name of a single input file.</h:p>
         </definition>
         <description>
-            <h:p>TODO.</h:p>
+            <h:p>See the <h:a href="#inputFileList">inputFileList</h:a> for an example.</h:p>
         </description>
     </entry>
 
@@ -407,7 +468,11 @@
         </definition>
         <description>
             <h:p>A Universally Unique IDentifier as per <h:a href="http://www.ietf.org/rfc/rfc4122">RFC 4122</h:a>.
-            Any of the five versions or the special nil identifier are acceptable.</h:p>
+            Any of the five versions or the special nil identifier are acceptable. This will usually be applied to
+            a cml metadata element as shown below:</h:p>
+<h:pre>
+&lt;metadata name="compchem:UUID" content="d1056d90-a29b-11e1-54a6-d61df6dfef7c"/&gt;
+</h:pre>
         </description>
     </entry>
 
@@ -677,7 +742,6 @@
 
 
 <!-- Basis set properties -->
-
     <entry id="basisSet" term="basis set" 
         dataType="cml:list" unitType="unitType:none" units="si:none">
         <definition>
@@ -708,101 +772,174 @@
                 with the convention used to enforce their appearance. This also means that the attributes 
                 will appear as dictionary entries here with an associated explanation.
                 </h:p>
-            <h:p>To illustrate this, the STO-3G basis set for a calculation on water would be printed as
+            <h:p>To illustrate this, the mixed basis set for a calculation on water would be printed as
             follows in the NWChem output:</h:p>
-            <h:pre>Basis "ao basis" -> "" (cartesian)
+            <h:pre>
+                      Basis &quot;ao basis&quot; -&gt; &quot;&quot; (cartesian)
                       -----
-  O (Oxygen)
-  ----------
-            Exponent  Coefficients
+  h1 (Hydrogen)
+  -------------
+            Exponent  Coefficients 
        -------------- ---------------------------------------------------------
-  1 S  1.30709320E+02  0.154329
-  1 S  2.38088610E+01  0.535328
-  1 S  6.44360830E+00  0.444635
+  1 S  1.30100000E+01  0.019685
+  1 S  1.96200000E+00  0.137977
+  1 S  4.44600000E-01  0.478148
 
-  2 S  5.03315130E+00 -0.099967
-  2 S  1.16959610E+00  0.399513
-  2 S  3.80389000E-01  0.700115
+  2 S  1.22000000E-01  1.000000
 
-  3 P  5.03315130E+00  0.155916
-  3 P  1.16959610E+00  0.607684
-  3 P  3.80389000E-01  0.391957
+  3 P  7.27000000E-01  1.000000
 
-  H (Hydrogen)
-  ------------
-            Exponent  Coefficients
+  h2 (Hydrogen)
+  -------------
+            Exponent  Coefficients 
        -------------- ---------------------------------------------------------
   1 S  3.42525091E+00  0.154329
   1 S  6.23913730E-01  0.535328
   1 S  1.68855400E-01  0.444635
 
+  o (Oxygen)
+  ----------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  4.71055180E+01 -0.014408
+  1 S  5.91134600E+00  0.129568
+  1 S  9.76483000E-01 -0.563118
+
+  2 S  2.96070000E-01  1.000000
+
+  3 P  1.66922190E+01  0.044856
+  3 P  3.90070200E+00  0.222613
+  3 P  1.07825300E+00  0.500188
+
+  4 P  2.84189000E-01  1.000000
+
+  5 P  7.02000000E-02  1.000000
 
 
- Summary of "ao basis" -> "" (cartesian)
+
+ Summary of &quot;ao basis&quot; -&gt; &quot;&quot; (cartesian)
  ------------------------------------------------------------------------------
        Tag                 Description            Shells   Functions and Types
  ---------------- ------------------------------  ------  ---------------------
- O                           sto-3g                  3        5   2s1p
- H                           sto-3g                  1        1   1s
+ h1                         cc-pvdz                  3        5   2s1p
+ h2                          sto-3g                  1        1   1s
+ o                     Stuttgart RLC ECP             5       11   2s3p
 </h:pre>
 <h:p>This would be marked up as follows:</h:p>
-<h:pre>&lt;cml:list id="basis_set" dictRef="compchem:basis_set"&gt;
-    &lt;cml:scalar id="basis_set_title" dictRef="compchem:basis_set_title" dataType="xsd:string"&gt;sto-3g&lt;/cml:scalar&gt;
-    &lt;cml:scalar id="basis_set_type" dictRef="compchem:basis_set_type" dataType="xsd:string"&gt;orbital&lt;/cml:scalar&gt;
-    &lt;cml:scalar id="basis_set_harmonic_type" dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"&gt;cartesian&lt;/cml:scalar&gt;
-    &lt;cml:scalar id="basis_set_contraction_type" dictRef="compchem:basis_set_contraction_type" dataType="xsd:string"&gt;segmented &lt;/cml:scalar&gt;
-    &lt;cml:scalar id="basis_set_description" dictRef="compchem:basis_set_description" dataType="xsd:string"&gt;ao basis&lt;/cml:scalar&gt;
-    &lt;cml:list id="basis_set_contractions" dictRef="compchem:basis_set_contractions"&gt;
-      &lt;cml:scalar dataType="xsd:string" dictRef="compchem:atom_type"&gt;O&lt;/cml:scalar&gt;
-      &lt;cml:scalar dataType="xsd:string" dictRef="compchem:element_type"&gt;O&lt;/cml:scalar&gt;
-      &lt;cml:scalar dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"/&gt;
-      &lt;cml:list dictRef="compchem:basis_set_contraction"&gt;
-        &lt;cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string"&gt;S&lt;/cml:scalar&gt;
-        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3"&gt;130.70932 23.808861 6.4436083&lt;/cml:array&gt;
-        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3"&gt;0.154329 0.535328 0.444635&lt;/cml:array&gt;
-      &lt;/cml:list&gt;
-      &lt;cml:list dictRef="compchem:basis_set_contraction"&gt;
-        &lt;cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string"&gt;S&lt;/cml:scalar&gt;
-        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3"&gt;5.0331513 1.1695961 0.380389&lt;/cml:array&gt;
-        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3"&gt;-0.099967 0.399513 0.700115&lt;/cml:array&gt;
-      &lt;/cml:list&gt;
-      &lt;cml:list dictRef="compchem:basis_set_contraction"&gt;
-        &lt;cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string"&gt;P&lt;/cml:scalar&gt;
-        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3"&gt;5.0331513 1.1695961 0.380389&lt;/cml:array&gt;
-        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3"&gt;0.155916 0.607684 0.391957&lt;/cml:array&gt;
-      &lt;/cml:list&gt;
-    &lt;/cml:list&gt;
-    &lt;cml:list id="basis_set_contractions" dictRef="compchem:basis_set_contractions"&gt;
-      &lt;cml:scalar dataType="xsd:string" dictRef="compchem:atom_type"&gt;H&lt;/cml:scalar&gt;
-      &lt;cml:scalar dataType="xsd:string" dictRef="compchem:element_type"&gt;H&lt;/cml:scalar&gt;
-      &lt;cml:scalar dictRef="compchem:basis_set_harmonic_type" dataType="xsd:string"/&gt;
-      &lt;cml:list dictRef="compchem:basis_set_contraction"&gt;
-        &lt;cml:scalar dictRef="compchem:basis_set_shell" dataType="xsd:string"&gt;S&lt;/cml:scalar&gt;
-        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_exponent" size="3"&gt;3.42525091 0.62391373 0.1688554&lt;/cml:array&gt;
-        &lt;cml:array dataType="xsd:double" dictRef="compchem:basis_set_coefficient" size="3"&gt;0.154329 0.535328 0.444635&lt;/cml:array&gt;
-      &lt;/cml:list&gt;
-    &lt;/cml:list&gt;
-  &lt;/cml:list&gt;
+<h:pre>&lt;list dictRef="compchem:basisSet" id="basisSet"&gt;
+    &lt;list dictRef="compchem:basisSetContractions" id="basisSetContractions"&gt;
+      &lt;scalar dataType="xsd:string" id="atomType" dictRef="compchem:atomType"&gt;h1&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="elementType" dictRef="compchem:elementType"&gt;H&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetType" dictRef="compchem:basis_set_type"&gt;orbital&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetLabel" dictRef="compchem:basisSetLabel"&gt;cc-pvdz&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetHarmonicType" dictRef="compchem:basisSetHarmonicType"&gt;cartesian&lt;/scalar&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;s&lt;/scalar&gt;
+        &lt;array size="3" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;1.301000000000e1 1.962000000000e0 4.446000000000e-1&lt;/array&gt;
+        &lt;array size="3" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;1.968500000000e-2 1.379770000000e-1 4.781480000000e-1&lt;/array&gt;
+      &lt;/list&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;s&lt;/scalar&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;1.220000000000e-1&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;1.000000000000e0&lt;/array&gt;
+      &lt;/list&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;p&lt;/scalar&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;7.270000000000e-1&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;1.000000000000e0&lt;/array&gt;
+      &lt;/list&gt;
+    &lt;/list&gt;
+    &lt;list dictRef="compchem:basisSetContractions" id="basisSetContractions"&gt;
+      &lt;scalar dataType="xsd:string" id="atomType" dictRef="compchem:atomType"&gt;h2&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="elementType" dictRef="compchem:elementType"&gt;H&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetType" dictRef="compchem:basis_set_type"&gt;orbital&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetLabel" dictRef="compchem:basisSetLabel"&gt;sto-3g&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetHarmonicType" dictRef="compchem:basisSetHarmonicType"&gt;cartesian&lt;/scalar&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;s&lt;/scalar&gt;
+        &lt;array size="3" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;3.425250910000e0 6.239137300000e-1 1.688554000000e-1&lt;/array&gt;
+        &lt;array size="3" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;1.543289700000e-1 5.353281400000e-1 4.446345400000e-1&lt;/array&gt;
+      &lt;/list&gt;
+    &lt;/list&gt;
+    &lt;list dictRef="compchem:basisSetContractions" id="basisSetContractions"&gt;
+      &lt;scalar dataType="xsd:string" id="atomType" dictRef="compchem:atomType"&gt;o&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="elementType" dictRef="compchem:elementType"&gt;O&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetType" dictRef="compchem:basis_set_type"&gt;orbital&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetLabel" dictRef="compchem:basisSetLabel"&gt;Stuttgart RLC ECP&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetHarmonicType" dictRef="compchem:basisSetHarmonicType"&gt;cartesian&lt;/scalar&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;s&lt;/scalar&gt;
+        &lt;array size="3" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;4.710551800000e1 5.911346000000e0 9.764830000000e-1&lt;/array&gt;
+        &lt;array size="3" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;-1.440800000000e-2 1.295680000000e-1 -5.631180000000e-1&lt;/array&gt;
+      &lt;/list&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;s&lt;/scalar&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;2.960700000000e-1&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;1.000000000000e0&lt;/array&gt;
+      &lt;/list&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;p&lt;/scalar&gt;
+        &lt;array size="3" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;1.669221900000e1 3.900702000000e0 1.078253000000e0&lt;/array&gt;
+        &lt;array size="3" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;4.485600000000e-2 2.226130000000e-1 5.001880000000e-1&lt;/array&gt;
+      &lt;/list&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;p&lt;/scalar&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;2.841890000000e-1&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;1.000000000000e0&lt;/array&gt;
+      &lt;/list&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;p&lt;/scalar&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;7.020000000000e-2&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;1.000000000000e0&lt;/array&gt;
+      &lt;/list&gt;
+    &lt;/list&gt;
+    &lt;list dictRef="compchem:basisSetContractions" id="basisSetContractions"&gt;
+      &lt;scalar dataType="xsd:string" id="atomType" dictRef="compchem:atomType"&gt;o&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="elementType" dictRef="compchem:elementType"&gt;O&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetType" dictRef="compchem:basis_set_type"&gt;ecporb&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetLabel" dictRef="compchem:basisSetLabel"&gt;Stuttgart RLC ECP&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:string" id="basisSetHarmonicType" dictRef="compchem:basisSetHarmonicType"&gt;cartesian&lt;/scalar&gt;
+      &lt;scalar dataType="xsd:integer" id="numElectronsReplaced" dictRef="compchem:numElectronsReplaced"&gt;2&lt;/scalar&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;s&lt;/scalar&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetRExponent"&gt;2.000000000000e0&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;1.044567000000e1&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;5.077106900000e1&lt;/array&gt;
+      &lt;/list&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;p&lt;/scalar&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetRExponent"&gt;2.000000000000e0&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;1.804517400000e1&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;-4.903551000000e0&lt;/array&gt;
+      &lt;/list&gt;
+      &lt;list dictRef="compchem:basisSetContraction" id="basisSetContraction"&gt;
+        &lt;scalar dataType="xsd:string" dictRef="compchem:basisSetShell"&gt;d&lt;/scalar&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetRExponent"&gt;2.000000000000e0&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetExponent"&gt;8.164798000000e0&lt;/array&gt;
+        &lt;array size="1" dataType="fpx:real" dictRef="compchem:basisSetCoefficient"&gt;-3.312124000000e0&lt;/array&gt;
+      &lt;/list&gt;
+    &lt;/list&gt;
+&lt;/list&gt;
 </h:pre>
         </description>
 </entry>
-
 
     
     <entry id="basisSetLabel" term="basis set label" 
       dataType="xsd:string" units="si:none" unitType="unitType:none">
       <definition>
-        <h:p>The name of the basis set if the same basis set was used throughout the calculation. If
-        different named basis sets were used on different atoms, this will be undefined.</h:p>
+        <h:p>The name of the basis set.</h:p>
       </definition>
       <description>
         <h:p>This is the name or title of the basis set and should be one of names used within the
         <h:a href="http://bse.pnl.gov/">EMSL Basis Set Exchange</h:a>. This corresponds to the Dublin
          core <h:a href="http://dublincore.org/documents/dces">title</h:a> element of the &quot;basisSet&quot; in the 
          BSE schema.</h:p>
-         <h:p>The title for the basis set is only valid if the same basis set is applied throughout the 
-         calculation. If, for example &quot;3-21G&quot; was used for Hydrogen and &quot;6-311G**&quot;
-         on everything else, it will not be possible to assign a single name here</h:p>
+         <h:p>The basisSetLabel will usually be applied within a <h:a href="#basisSetContractions">basisSetContractions</h:a>
+         list, as this permits different named basis sets to be applied to different atoms.</h:p>
+         <h:p> The basisSetLabel may be applied to the whole basis set (i.e. at the same level as the basisSetContrations)
+         if the same basis set was applied to all atoms in the calculation. This is to permit logfiles to be converted to
+         valid CML where the basis set is not printed explictly on each atom.</h:p>
       </description>
     </entry>
  
@@ -937,10 +1074,30 @@
       </description>
     </entry>
     
-  <entry id="basisSetCoefficient" term="basis set coefficient "
+   <entry id="basisSetERxponent" term="basis set R exponent" 
+    dataType="cml:array" units="si:none" unitType="unitType:none">
+      <definition>
+        <h:p>A cml:array holding the list of R exponents for an individual Effective Core Potential (ECP) contraction.</h:p>
+      </definition>
+      <description>
+        <h:p>TODO</h:p>
+      </description>
+    </entry>
+    
+    <entry id="basisSetCoefficient" term="basis set coefficient "
     dataType="cml:array" units="si:none" unitType="unitType:none">
       <definition>
         <h:p>A cml:array holding the list of coefficients for an individual contraction.</h:p>
+      </definition>
+      <description>
+        <h:p>TODO</h:p>
+      </description>
+    </entry>
+    
+    <entry id="numElectronsReplaced" term="Number of replaced electrons"
+    dataType="xsd:integer" unitType="unitType:dimensionless" units="si:none">
+      <definition>
+        <h:p>The number of electrons replaced by an Effective Core Potential (ECP).</h:p>
       </definition>
       <description>
         <h:p>TODO</h:p>
